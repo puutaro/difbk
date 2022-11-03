@@ -1,0 +1,376 @@
+#!/bin/bash
+
+LANG=C
+#TERMINAL_CURRENT_DIR=$(pwd)
+EXEC_FILE_DIR=$(cd $(dirname $0) ; pwd)
+# incdule diffbk ------------------------
+DIFBK_DIR_NAME="difbk_dir"
+DIFBK_DIR_PATH="${EXEC_FILE_DIR}/${DIFBK_DIR_NAME}"
+
+DIFBK_LIB_DIR_NAME="difbk_lib"
+DIFBK_LIB_DIR_PATH="${DIFBK_DIR_PATH}/${DIFBK_LIB_DIR_NAME}"
+. ${DIFBK_LIB_DIR_PATH}/include_difbk_function.sh
+. ${DIFBK_LIB_DIR_PATH}/export_difbk_function.sh
+. ${DIFBK_LIB_DIR_PATH}/export_difbk_function_copy.sh
+. ${DIFBK_LIB_DIR_PATH}/include_als_plugin_function.sh
+. ${DIFBK_LIB_DIR_PATH}/include_als_base_function.sh
+DIFBK_SCH_LIB_DIR_NAME="difbk_sch_func"
+
+DIFBK_SCH_LIB_DIR_PATH="${DIFBK_DIR_PATH}/${DIFBK_SCH_LIB_DIR_NAME}"
+. ${DIFBK_SCH_LIB_DIR_PATH}/contents_search.sh
+DIFBK_ALS_PLUGIN_DIR_NAME="dfbk_als_plupin"
+DIFBK_ALS_PLUGIN_DIR_NAME="${DIFBK_DIR_PATH}/${DIFBK_ALS_PLUGIN_DIR_NAME}"
+DIFBK_EXEC_DIR_NAME="difbk_exec"
+DIFBK_EXEC_DIR_PATH="${DIFBK_DIR_PATH}/${DIFBK_EXEC_DIR_NAME}"
+DIFBK_EXEC_LABEL_SELECT_FILE_PATH=${DIFBK_EXEC_DIR_PATH}/difbk_label_select.sh
+
+export -f lecho
+export -f make_merge_list_entry
+export -f exec_delete_gzip
+export -f exec_find
+export -f du_dir_check_exist_path
+export -f du_file_check_exist_path
+export -f zip_cat_check_dir_path
+export -f zip_cat_wc_check_dir_path
+export -f zip_wc_check_path
+export -f echo_file_path
+export -f zip_grep_file_path
+export -f gls_date_sort
+export CHECH_SUM_DIR_INFO="ddddd"
+# ----------------------------------------
+# difinition valiable2 -------------------
+DIFBK_INIT_CMD_VALIABLE="init"
+DIFBK_LS_CMD_VALIABLE="ls"
+DIFBK_SCH_CMD_VALIABLE="sch"
+DIFBK_SLS_CMD_VALIABLE="als"
+DIFBK_DIFF_CMD_VALIABLE="diff"
+DIFBK_BK_CMD_VALIABLE="bk"
+DIFBK_LRS_CMD_VALIABLE="lrs"
+DIFBK_RS_CMD_VALIABLE="rs"
+DIFBK_CLEAN_CMD_VALIABLE="clean"
+DIFBK_HELP_CMD_VALIABLE="help"
+BUCKUP_DEBUG=0
+export BUCKUP_DEBUG=${BUCKUP_DEBUG}
+DISPLAY_LIMIT_ABUSOLUTE=20
+DISPLAY_LIMIT=${DISPLAY_LIMIT_ABUSOLUTE}
+RANDOM_SUPER_LIMIT_ABUSOLUTE=20
+LESS_BORDER_NUM=10
+COMPARE_DIR_WORD="directory"
+export COMPARE_DIR_WORD=${COMPARE_DIR_WORD}
+DIFBK_DAILY_DISPLAY="daily"
+DIFBK_EVRYTIME_DISPLAY="every"
+DEFBK_TAB_BLANK="	"
+DIFBK_BLANK_MARK="DIFBK_BLANK_MARK"
+DISPLAY_NUM_LIST=10
+PARARELL_EXEMNUM=100000
+ENV_PARARELL_EXEMNUM=100
+GREP_INTERVAL=1000
+LIMIT_ALS_SIZE=10000000
+export LIMIT_ALS_SIZE=${LIMIT_ALS_SIZE}
+LIMIT_DELETE_MERGE_FILE_NUM=3
+SED_TTTTBBBB="ttttbbbb"
+GGIP_EXETEND=".gz"
+export GGIP_EXETEND=${GGIP_EXETEND}
+DFBK_GGIP_EXETEND=".difbk.gz"
+export DFBK_GGIP_EXETEND=${DFBK_GGIP_EXETEND}
+DESC_PREFIX=":desk:"
+DIFBK_EXCLUDE_DS_STORE='.DS_Store'
+SEPARATE_BAR="###################################################"
+
+# difinition valiable2 --------------------
+
+realpath() {
+	case "$1" in /*) ;; *) printf '%s/' "$PWD";; esac; echo "$1"
+}
+
+DIFBK_SUB_CMD=""
+OLD_PREFIX="old"
+shift_seed=0
+C_OPTION=""
+while (( $# > 0 ))
+do
+	case $1 in
+		-b)
+			# echo backup
+			B_OPTION="${2}"
+			shift;;
+  	-c|-c[0-9]*)
+			C_OPTION+="${1}";;
+		-d)
+			case "${DIFBK_SUB_CMD}" in 
+				"${DIFBK_BK_CMD_VALIABLE}") 
+					D_OPTION="${1}, ${2}"
+					shift;;
+				*)
+					D_OPTION+="${DESC_PREFIX}.*${2}"
+					shift;;
+			esac;;
+		-da)
+			case "${DIFBK_SUB_CMD}" in 
+				*)
+					DA_OPTION+="${DESC_PREFIX}.*${2}"
+					shift;;
+			esac;;
+		-db)
+			case "${DIFBK_SUB_CMD}" in 
+				*)
+					DB_OPTION+="${DESC_PREFIX}.*${2}"
+					shift;;
+			esac;;
+		-dn)
+			case "${DIFBK_SUB_CMD}" in 
+				"${DIFBK_BK_CMD_VALIABLE}") 
+					DN_OPTION="${1}";;
+			esac;;
+		-dv)
+			DV_OPTION+=",${DESC_PREFIX}.*${2}"
+			shift;;
+		-do)
+			shift;;
+		-d[a-z])
+			case "${DIFBK_SUB_CMD}" in 
+				"${DIFBK_DIFF_CMD_VALIABLE}") 
+					dRGA_OPTION+=" ${1} \"\[2\] ${DESC_PREFIX}.*${2}\""
+					;;
+				*)
+					dRGA_OPTION+=" ${1} \"${DESC_PREFIX}.*${2}\""
+					;;
+			esac
+			# dRGA_OPTION+=" ${1} \"${DESC_PREFIX}.*${2}\""
+			shift;;
+		-A|-B)
+			shift;;
+		-e)
+			case "${DIFBK_SUB_CMD}" in 
+			"${DIFBK_SCH_CMD_VALIABLE}")
+					GENERAL_OPTION+=",${1} '${2}'"
+					shift;;
+			"${DIFBK_LRS_CMD_VALIABLE}")
+					GENERAL_OPTION+=",${1}"
+					;;
+			"${DIFBK_DIFF_CMD_VALIABLE}")
+					GENERAL_OPTION+=",${1}"
+					;;
+			esac;;
+		-v)
+			case "${DIFBK_SUB_CMD}" in 
+				"${DIFBK_CLEAN_CMD_VALIABLE}")
+					V_OPTION=",${1}"
+					;;
+				*)
+					V_OPTION+=",${1} \"${2}\""
+					shift;;
+			esac;;
+		-o)
+			O_OPTION+=",${1} '${2}'"
+			shift;;
+		-LN)
+			case "${DIFBK_SUB_CMD}" in 
+				"${DIFBK_BK_CMD_VALIABLE}") 
+					LN_OPTION="${1}";;
+			esac;;
+		-j)
+			case "${DIFBK_SUB_CMD}" in 
+				"${DIFBK_SCH_CMD_VALIABLE}") 
+					J_OPTION="${1} ${2}"
+					shift;;
+			esac;;
+		-*)
+			GENERAL_OPTION+=",${1} '${2}'"
+			shift;;
+		*)	case "${shift_seed}" in 
+				"0") 
+					DIFBK_SUB_CMD=${1}
+					shift_seed=$((${shift_seed} + 1))
+					;;
+				*) 
+					case "${DIFBK_SUB_CMD}" in 
+						"${DIFBK_BK_CMD_VALIABLE}") 
+							DIFBK_ARGUMENT=${1};;
+						*) 
+							DIFBK_ARGUMENT+=",\"${1}\"";;
+					esac;;
+			esac;;
+  esac
+  shift
+done << END
+$STR
+END
+# echo "GENERAL_OPTION: ${GENERAL_OPTION}"
+# echo "V_OPTION ${V_OPTION}"
+# echo "dRGA_OPTION: ${dRGA_OPTION}"
+# echo "D_OPTION: ${D_OPTION}"
+# echo "B_OPTION: ${B_OPTION}"
+# echo "DIFBK_ARGUMENT ${DIFBK_ARGUMENT}"
+# echo "DIFBK_SUB_CMD : ${DIFBK_SUB_CMD}"
+# echo "DN_OPTION ${DN_OPTION}"
+# echo "J_OPTION ${J_OPTION}"
+case "${DIFBK_SUB_CMD}" in 
+	"${DIFBK_BK_CMD_VALIABLE}"|"${DIFBK_CLEAN_CMD_VALIABLE}") 
+		case "${B_OPTION}" in 
+			"") ;; 
+			*) 
+				echo "B_OPTION must not be specified in bkup cmd"
+				exit 0
+				;;
+		esac
+	;;
+esac
+# echo "DIFBK_SUB_CMD : ${DIFBK_SUB_CMD}"
+case "${B_OPTION}" in 
+	"")
+		# echo ---1
+		TARGET_DIR_PATH=$(pwd)
+		TARGET_DIR_NAME=$(basename ${TARGET_DIR_PATH})
+		;;
+	*)
+		# echo ---2
+		# echo "B_OPTION: ${B_OPTION}"
+		case "$(basename "${B_OPTION}" | rga "${OLD_PREFIX}")"  in 
+			"") 
+				echo "buckup old dir must be specfied:  ${B_OPTION}"
+				exit 0;;
+		esac
+		absolute_path=$(realpath "${B_OPTION}")
+		[ ! -e ${absolute_path} ] && echo "no exist buckup dir path: ${absolute_path}" && exit 0
+		if [ -e "$(echo "${absolute_path}" | rga "${OLD_PREFIX}_")" ] && [ -e "${absolute_path}" ];then 
+			TARGET_DIR_NAME=$(basename "${absolute_path}" | sed "s/${OLD_PREFIX}_//")
+			TARGET_DIR_PATH="$(dirname "${absolute_path}")/${TARGET_DIR_NAME}"
+		fi
+	;;
+esac
+# echo "TARGET_DIR_NAME : ${TARGET_DIR_NAME}"
+# echo "TARGET_DIR_PATH : ${TARGET_DIR_PATH}"
+export TARGET_DIR_NAME=${TARGET_DIR_NAME}
+export TARGET_DIR_PATH=${TARGET_DIR_PATH}
+cd "${TARGET_DIR_PATH}"
+DFBK_SETTING_DIR_NAME=".difbk"
+DFBK_SETTING_DIR_PATH="${TARGET_DIR_PATH}/${DFBK_SETTING_DIR_NAME}"
+DFBK_LABEL_DIR_NAME="difbk_label"
+DFBK_LABEL_DIR_PATH="${DFBK_SETTING_DIR_PATH}/${DFBK_LABEL_DIR_NAME}"
+DFBK_LABEL_FILE_NAME="difbk_label_list"
+DFBK_LABEL_FILE_PATH="${DFBK_LABEL_DIR_PATH}/${DFBK_LABEL_FILE_NAME}"
+DFBK_RESTORE_DIR_NAME="restore"
+DFBK_RESTORE_DIR_PATH="${DFBK_SETTING_DIR_PATH}/${DFBK_RESTORE_DIR_NAME}"
+DFBK_PROPERTY_FILE_NAME="property"
+DFBK_PROPERTY_FILE_PATH="${DFBK_SETTING_DIR_PATH}/${DFBK_PROPERTY_FILE_NAME}"
+DFBK_DESK_CAT_FILE_NAME="desk_cat.sh"
+DFBK_DESK_CAT_FILE_PATH="${DFBK_SETTING_DIR_PATH}/${DFBK_DESK_CAT_FILE_NAME}"
+DFBK_EXEC_SCH_FILE_NAME="exec_sch.sh"
+DFBK_EXEC_SCH_FILE_PATH="${DFBK_SETTING_DIR_PATH}/${DFBK_EXEC_SCH_FILE_NAME}"
+DFBK_OUT_FD_LIST_FILE_NAME="out_fd_list.sh"
+DFBK_OUT_FD_LIST_FILE_PATH="${DFBK_SETTING_DIR_PATH}/${DFBK_OUT_FD_LIST_FILE_NAME}"
+DFBK_SCH_LIST_RECIEVE_DIR_NAME="sch_list_file_recieve"
+DFBK_SCH_LIST_RECIEVE_DIR_PATH="${DFBK_SETTING_DIR_PATH}/${DFBK_SCH_LIST_RECIEVE_DIR_NAME}"
+DFBK_SCH_LIST_RECIEVE_FILE_NAME="sch_list_recieve.sh"
+DFBK_SCH_LIST_RECIEVE_FILE_PATH="${DFBK_SCH_LIST_RECIEVE_DIR_PATH}/${DFBK_SCH_LIST_RECIEVE_FILE_NAME}"
+DFBK_SCH_LIST_OUTPUT_FILE_NAME="sch_list_output.sh"
+DFBK_SCH_LIST_OUTPUT_FILE_PATH="${DFBK_SETTING_DIR_PATH}/${DFBK_SCH_LIST_OUTPUT_FILE_NAME}"
+DFBK_DESK_RECIEVE_DIR_NAME="desk_recieve"
+DFBK_DESK_RECIEVE_DIR_PATH="${DFBK_SETTING_DIR_PATH}/${DFBK_DESK_RECIEVE_DIR_NAME}"
+DFBK_DESK_RECIEVE_FILE_NAME="desk_recieve.sh"
+DFBK_DESK_RECIEVE_FILE_PATH="${DFBK_SETTING_DIR_PATH}/${DFBK_DESK_RECIEVE_FILE_NAME}"
+DFBK_DESK_OUTPUT_FILE_NAME="desk_output.sh"
+DFBK_DESK_OUTPUT_FILE_PATH="${DFBK_SETTING_DIR_PATH}/${DFBK_DESK_OUTPUT_FILE_NAME}"
+DFBK_CUR_FD_CON_FILE_NAME="cr_fd_con.sh"
+DFBK_CUR_FD_CON_FILE_PATH="${DFBK_SETTING_DIR_PATH}/${DFBK_CUR_FD_CON_FILE_NAME}"
+DFBK_CHECK_SUM_CULC_DIR_NAME="checksum_culc"
+DFBK_CHECK_SUM_CULC_DIR_PATH="${DFBK_SETTING_DIR_PATH}/${DFBK_CHECK_SUM_CULC_DIR_NAME}"
+DFBK_CHECK_SUM_OUTPUT_FILE_NAME="checksum_output"
+DFBK_CHECK_SUM_OUTPUT_FILE_PATH="${DFBK_SETTING_DIR_PATH}/${DFBK_CHECK_SUM_OUTPUT_FILE_NAME}"
+DFBK_CHECK_SUM_OUTPUT_RCEIVE_FILE_NAME="checksum_output_receive"
+DFBK_CHECK_SUM_OUTPUT_FILE_RCEIVE_PATH="${DFBK_SETTING_DIR_PATH}/${DFBK_CHECK_SUM_OUTPUT_RCEIVE_FILE_NAME}"
+export DFBK_CHECK_SUM_OUTPUT_FILE_RCEIVE_PATH=${DFBK_CHECK_SUM_OUTPUT_FILE_RCEIVE_PATH}
+DFBK_EXEC_SUM_FILE_NAME="exec_sum.sh"
+DFBK_EXEC_SUM_FILE_PATH="${DFBK_SETTING_DIR_PATH}/${DFBK_EXEC_SUM_FILE_NAME}"
+DFBK_EXEC_EXCLUDE_FILE_NAME="exec_exclude.sh"
+DFBK_EXEC_EXCLUDE_FILE_PATH="${DFBK_SETTING_DIR_PATH}/${DFBK_EXEC_EXCLUDE_FILE_NAME}"
+DFBK_EXEC_EXCLUDE_C_D_FILE_NAME="exec_exclude_c_d.sh"
+DFBK_EXEC_EXCLUDE_C_D_FILE_PATH="${DFBK_SETTING_DIR_PATH}/${DFBK_EXEC_EXCLUDE_C_D_FILE_NAME}"
+DFBK_EXEC_EXCLUDE_RECEIVE_DIR_NAME="exclude_cd_receive"
+DFBK_EXEC_EXCLUDE_RECEIVE_DIR_PATH="${DFBK_SETTING_DIR_PATH}/${DFBK_EXEC_EXCLUDE_RECEIVE_DIR_NAME}"
+DFBK_EXCLUDE_OUTPUT_FILE_NAME="excluce_output.sh"
+DFBK_EXCLUDE_OUTPUT_FILE_PATH="${DFBK_SETTING_DIR_PATH}/${DFBK_EXCLUDE_OUTPUT_FILE_NAME}"
+DFBK_EXCLUDE_OUTPUT_RCEIVE_FILE_NAME="excluce_output_receive"
+DFBK_EXCLUDE_OUTPUT_FILE_RCEIVE_PATH="${DFBK_SETTING_DIR_PATH}/${DFBK_EXCLUDE_OUTPUT_RCEIVE_FILE_NAME}"
+DFBK_EXEC_SUM_FILE_NAME="exec_sum.sh"
+DFBK_EXEC_SUM_FILE_PATH="${DFBK_SETTING_DIR_PATH}/${DFBK_EXEC_SUM_FILE_NAME}"
+DFBK_EXEC_DIFF_NAME="DIFF.sh"
+DFBK_EXEC_DIFF_PATH="${DFBK_SETTING_DIR_PATH}/${DFBK_EXEC_DIFF_NAME}"
+DFBK_PROPERTY_SEARCH_WORD_TITLE="DIFBK_SEARCH_WORD"
+DFBK_IGNORE_FILE_NAME=".difbk_ignore"
+DFBK_IGNORE_FILE_PATH="${TARGET_DIR_PATH}/${DFBK_IGNORE_FILE_NAME}"
+export DFBK_IGNORE_FILE_PATH=${DFBK_IGNORE_FILE_PATH}
+TARGET_PAR_DIR_PATH=$(dirname ${TARGET_DIR_PATH})
+export TARGET_PAR_DIR_PATH="${TARGET_PAR_DIR_PATH}"
+BUCK_UP_DIR_NAME="${OLD_PREFIX}_${TARGET_DIR_NAME}"
+export BUCK_UP_DIR_NAME="${BUCK_UP_DIR_NAME}"
+BUCK_UP_DIR_PATH="${TARGET_PAR_DIR_PATH}/${BUCK_UP_DIR_NAME}"
+BUCKUP_YEAR_DIR_NAME=$(TZ=Asia/Tokyo date '+%Y')
+BUCKUP_YEAR_DIR_PATH="${BUCK_UP_DIR_PATH}/${BUCKUP_YEAR_DIR_NAME}"
+BUCKUP_MONTH_DIR_NAME=$(TZ=Asia/Tokyo date '+%m')
+BUCKUP_MONTH_DIR_PATH="${BUCKUP_YEAR_DIR_PATH}/${BUCKUP_MONTH_DIR_NAME}"
+BUCKUP_DAY_DIR_NAME=$(TZ=Asia/Tokyo date '+%d')
+BUCKUP_DAY_DIR_PATH="${BUCKUP_MONTH_DIR_PATH}/${BUCKUP_DAY_DIR_NAME}"
+BUCKUP_TIME_DIR_NAME=$(TZ=Asia/Tokyo date '+%H%M')
+BUCKUP_TIME_DIR_PATH="${BUCKUP_DAY_DIR_PATH}/${BUCKUP_TIME_DIR_NAME}"
+BUCKUP_SOURCE_TIME_DIR_NAME="${TARGET_DIR_NAME}"
+BUCKUP_SOURCE_TIME_DIR_PATH="${BUCKUP_TIME_DIR_PATH}/${TARGET_DIR_NAME}"
+BUCKUP_DESC_FILE_NAME="dfbk_desc.txt"
+export BUCKUP_DESC_FILE_NAME=${BUCKUP_DESC_FILE_NAME}
+BUCKUP_DESC_TEMP_FILE_PATH="${DFBK_SETTING_DIR_PATH}/${BUCKUP_DESC_FILE_NAME}"
+BUCKUP_DESC_FILE_PATH="${BUCKUP_TIME_DIR_PATH}/${BUCKUP_DESC_FILE_NAME}"
+
+BACKUP_CREATE_DIR_NAME="bukup_create"
+export BACKUP_CREATE_DIR_NAME="${BACKUP_CREATE_DIR_NAME}"
+BACKUP_CREATE_DIR_PATH="${BUCKUP_TIME_DIR_PATH}/${BACKUP_CREATE_DIR_NAME}"
+export BACKUP_CREATE_DIR_PATH="${BACKUP_CREATE_DIR_PATH}"
+BACKUP_DELETE_DIR_NAME="bukup_delete"
+BACKUP_DELETE_DIR_PATH="${BUCKUP_TIME_DIR_PATH}/${BACKUP_DELETE_DIR_NAME}"
+BUCKUP_MERGE_CONTENSTS_LIST_DIR_NAME="buckup_merge"
+BUCKUP_MERGE_CONTENSTS_LIST_DIR_PATH="${BUCKUP_TIME_DIR_PATH}/${BUCKUP_MERGE_CONTENSTS_LIST_DIR_NAME}"
+BUCKUP_MERGE_CONTENSTS_LIST_FILE_NAME="buckup_merge_list.txt"
+BUCKUP_MERGE_CONTENSTS_LIST_FILE_PATH="${BUCKUP_MERGE_CONTENSTS_LIST_DIR_PATH}/${BUCKUP_MERGE_CONTENSTS_LIST_FILE_NAME}"
+BUCKUP_MERGE_CONTENSTS_LIST_GZIP_FILE_NAME="${BUCKUP_MERGE_CONTENSTS_LIST_FILE_NAME}${GGIP_EXETEND}"
+BUCKUP_MERGE_CONTENSTS_LIST_GZIP_FILE_PATH="${BUCKUP_MERGE_CONTENSTS_LIST_FILE_PATH}/${BUCKUP_MERGE_CONTENSTS_LIST_GZIP_FILE_NAME}"
+BUCKUP_MERGE_CONTENSTS_LIST_DIFBK_GZIP_FILE_NAME="${BUCKUP_MERGE_CONTENSTS_LIST_FILE_NAME}${DFBK_GGIP_EXETEND}"
+BUCKUP_MERGE_CONTENSTS_LIST_DIFBK_GZIP_FILE_PATH="${BUCKUP_MERGE_CONTENSTS_LIST_FILE_PATH}/${BUCKUP_MERGE_CONTENSTS_LIST_DIFBK_GZIP_FILE_NAME}"
+SED_TARGET_DIR_PATH=${TARGET_DIR_PATH//\//\\\/}
+SED_TARGET_PAR_DIR_PATH=${TARGET_PAR_DIR_PATH//\//\\\/}
+SED_BUCK_UP_DIR_PATH=${BUCK_UP_DIR_PATH//\//\\\/}
+SED_DFBK_CHECK_SUM_CULC_DIR_PATH=${DFBK_CHECK_SUM_CULC_DIR_PATH//\//\\\/}
+SED_DFBK_CHECK_SUM_OUTPUT_FILE_RCEIVE_PATH=${DFBK_CHECK_SUM_OUTPUT_FILE_RCEIVE_PATH//\//\\\/}
+SED_DFBK_CHECK_SUM_OUTPUT_FILE_PATH=${DFBK_CHECK_SUM_OUTPUT_FILE_PATH//\//\\\/}
+SED_DFBK_GGIP_EXETEND=${DFBK_GGIP_EXETEND//\./\\\.}
+SED_GGIP_EXETEND=${GGIP_EXETEND//\./\\\.}
+BUCK_UP_CREATE_DIR_RALATIVE_PATH=${BACKUP_CREATE_DIR_PATH//${SED_TARGET_PAR_DIR_PATH}/}
+# ----------------------------------------------------------------
+set -e
+# confirm buckup dir ---------------------------------------------
+[ ! -e "${DFBK_SETTING_DIR_PATH}" ] && mkdir -p "${DFBK_SETTING_DIR_PATH}"
+# ----------------------------------------------------------------
+ 
+case "${DIFB_SUBCMD_INCLUDE_EJECT}" in
+	"") 
+	case "${DIFBK_SUB_CMD}" in
+	"${DIFBK_BK_CMD_VALIABLE}") 
+		. ${DIFBK_DIR_PATH}/exec_dfbk_bk.sh ;;
+	"${DIFBK_RS_CMD_VALIABLE}") 
+		. ${DIFBK_DIR_PATH}/exec_dfbk_rs.sh ;;
+	"${DIFBK_CLEAN_CMD_VALIABLE}") 
+		LANG="ja_JP.UTF-8" . ${DIFBK_DIR_PATH}/exec_dfbk_clean.sh ;;
+	"${DIFBK_DIFF_CMD_VALIABLE}") 
+		. ${DIFBK_DIR_PATH}/exec_dfbk_diff.sh ;;
+	# "${DIFBK_LS_CMD_VALIABLE}") 
+	# 	. ${DIFBK_DIR_PATH}/exec_dfbk_ls.sh ;;
+	# "${DIFBK_SLS_CMD_VALIABLE}") 
+	# 	. ${DIFBK_DIR_PATH}/exec_dfbk_als.sh ;;
+	"${DIFBK_SCH_CMD_VALIABLE}") 
+		. ${DIFBK_DIR_PATH}/exec_dfbk_sch.sh ;;
+	"${DIFBK_LRS_CMD_VALIABLE}") 
+		. ${DIFBK_DIR_PATH}/exec_dfbk_lrs.sh ;;
+	"${DIFBK_HELP_CMD_VALIABLE}") 
+		LANG="ja_JP.UTF-8" . ${DIFBK_DIR_PATH}/exec_dfbk_help.sh ;;
+	esac
+	;;
+esac
