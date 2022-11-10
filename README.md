@@ -1,7 +1,7 @@
 
-# difbk commad line backup tool
+# `difbk` command line backup tool
 
-# difbk
+# `difbk`
 100% shell script differential backup tool.
 
 ![image](https://user-images.githubusercontent.com/55217593/201099244-36ea4227-ef06-4290-9a65-edf3ee025874.png)
@@ -61,19 +61,8 @@ Upgrading.
 1. delete $HOME/.difbk directory
 2. same as installation.
 
-
-Demo
------
-
-demo flow
-1. add -> run -> edit by gui -> run -> edit by editor -> run
-2. edit by gui -> set input execute -> run -> edit by editor -> run
-3. launch app directory manager -> add app directory -> change direcotry
-4.  install script -> run
-
 Usage
 -----
-CommandClick will launch shellscript platform, read shellscript from $HOME/cmdclick/default or etc.
 
 ### Buckup
 
@@ -103,7 +92,7 @@ difbk bk -d "{backup description}"
 
 
 ### List backup files
-Difbk management backup generation by backup files's text file(in fact commpressed into gz). Here list backup's list text files. this subcommand is base command in `difbk`. This is used for sch, restore and diff, etc.
+`difbk` management backup generation by backup files's text file(in fact commpressed into gz). Here list backup's list text files. this subcommand is base command in `difbk`. This is used for `sch`, `rs` and `diff`, etc.
 
 1. type bellow command
 
@@ -124,7 +113,7 @@ difbk lrs -e
 
 ### Search
 
-Difbk can search path or file contents. It's freqently use feature, and strong one at the same time.
+`difbk` can search path or file contents. It's freqently use feature, and strong one at the same time.
 
 #### Path search
 1. type bellow command
@@ -193,7 +182,9 @@ difbk diff {generation number or backup list file path or backuped file path}
 ### Restore
 
 #### All buckup files restore
+
 This is generally called restore
+
 1. type bellow command
 
 ```
