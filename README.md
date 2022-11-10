@@ -1,8 +1,6 @@
 
-# `difbk` command line backup tool
-
 # `difbk`
-100% shell script differential backup tool.
+Command line differential backup tool made by 100% shell script.
 
 ![image](https://user-images.githubusercontent.com/55217593/201099244-36ea4227-ef06-4290-9a65-edf3ee025874.png)
 
