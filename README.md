@@ -221,7 +221,7 @@ difbk clean -vl
 - latest backup file check and if finding miss, correct.
 
 #### Delete specify backup generation
-Although `difbk` compress file and save one, Data can be bloated with long use. when so , delete spedify generatio, and litghten the buckup.
+Although `difbk` compress file and save one, Data can be bloated with long use. when so , delete spedify generation, and litghten the buckup.
 
 
 1. type bellow command
