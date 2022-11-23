@@ -17,7 +17,6 @@ display_bk_result(){
 			)
 			;;
 	esac
-	echo "delete_items total: ${delete_item_total}"
 	echo "$(\
 			echo "${ls_delete_buckup_merge_contents}" \
 				| cut -f2 \
@@ -32,11 +31,12 @@ display_bk_result(){
 			)
 			;;
 	esac
-	echo "create_items total: ${create_item_total}"
 	echo "$(\
 		echo "${ls_create_buckup_merge_contents}" \
 		| cut -f2 \
 		| head -n "${DISPLAY_NUM_LIST}"\
 		| sed -r 's/(.*)/\x1b[1;38;5;2m\1\x1b[0m/' \
 	)"
+	echo "delete_items total: ${delete_item_total}"
+	echo "create_items total: ${create_item_total}"
 }
