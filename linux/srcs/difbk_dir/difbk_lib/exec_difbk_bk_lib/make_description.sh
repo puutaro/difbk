@@ -9,6 +9,10 @@ unset -v make_description_lib_path
 
 
 make_description(){
+	case "${DRY_BK_OPTION}" in
+		"");;
+		*) return
+	esac
 	case "${DN_OPTION}" in 
 		"") ;;
 		*) 	echo ""

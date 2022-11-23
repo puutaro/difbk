@@ -2,10 +2,8 @@
 
 
 insert_row_path_from_contents(){
-	local buckup_marge_contets="${1}"
-	local create_contents="${2}"
-	if [ -z "${buckup_marge_contets}" ] \
-		&& [ -z "${create_contents}" ]; then
+	if [ -z "${LS_BUCKUP_MERGE_CONTENTS}" ] \
+		&& [ -z "${LS_CREATE_BUCKUP_MERGE_CONTENTS}" ]; then
 		 echo "${LS_BUCKUP_MERGE_CONTENTS}"
 		 return
 	fi
@@ -14,12 +12,12 @@ insert_row_path_from_contents(){
 		| sed 's/\//\\\//g'\
 	)"
 	local insert_contents="$(\
-			echo "${create_contents}"\
+			echo "${LS_CREATE_BUCKUP_MERGE_CONTENTS}"\
 			| sed 's/\t\/'${TARGET_DIR_NAME}'\//\t'${sed_buck_up_create_dir_ralative_path}'\/'${TARGET_DIR_NAME}'\//g' \
 			| sed 's/\t\/'${TARGET_DIR_NAME}'$/\t'${sed_buck_up_create_dir_ralative_path}'\/'${TARGET_DIR_NAME}'/g'\
 	)"
 	cat \
-		<(echo "${buckup_marge_contets}") \
+		<(echo "${LS_BUCKUP_MERGE_CONTENTS}") \
 		<(echo "${insert_contents}") \
 		| sed '/^$/d'
 }

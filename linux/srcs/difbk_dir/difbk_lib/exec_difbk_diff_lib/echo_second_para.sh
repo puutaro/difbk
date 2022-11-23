@@ -9,7 +9,7 @@ echo_second_para(){
 	)
 	case "${second_para_source}" in
 		"")
-			echo "${MERGE_LIST_SECONDS_ORDER}"
+			echo "${CURRENT_TARGET_DIR_ORDER}"
 			return
 			;;
 	esac

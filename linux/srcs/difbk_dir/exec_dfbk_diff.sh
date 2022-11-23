@@ -3,6 +3,7 @@
 readonly DFBK_EXEC_DIFF_PATH="${DFBK_SETTING_DIR_PATH}/DIFF.sh"
 
 
+readonly CURRENT_TARGET_DIR_ORDER=1
 readonly MERGE_LIST_SECONDS_ORDER=2
 readonly JANRE_NO_RELATE_MERGE_LIST=0
 readonly JANRE_MERGE_LIST_NUM=1
@@ -18,8 +19,8 @@ EXEC_DIFBK_DIFF_LIB_PATH="${DIFBK_LIB_DIR_PATH}/exec_difbk_diff_lib"
 . "${EXEC_DIFBK_DIFF_LIB_PATH}/echo_desk_rga_v_cmd_for_diff.sh"
 . "${EXEC_DIFBK_DIFF_LIB_PATH}/differ_handler_when_no_relate_merge_list.sh"
 . "${EXEC_DIFBK_DIFF_LIB_PATH}/echo_before_merge_list_path_for_diff.sh"
-. "${EXEC_DIFBK_DIFF_LIB_PATH}/echo_diff_file_pair_con.sh"
 . "${EXEC_DIFBK_DIFF_LIB_PATH}/echo_diff_paste_con_generation.sh"
+. "${EXEC_DIFBK_DIFF_LIB_PATH}/make_diff_file_pair_and_label_and_target_merge_list.sh"
 
 
 unset -v DIFBK_BK_LIB_DIR_PATH
@@ -78,31 +79,34 @@ before_merge_list_path="$(\
 )"
 
 
-before_diff_compare_path=$(\
-	echo "${before_merge_list_path}" \
-		| rga -o "${BUCK_UP_DIR_PATH}/[0-9]{4}/[0-9]{2}/[0-9]{2}/[0-9]{4}" \
-		| sed 's/$/\/'${BACKUP_CREATE_DIR_NAME}'\/'${TARGET_DIR_NAME}'\//'\
-)
 if [ ! -e "${recent_merge_list_path}" ];then 
-	echo "no ${recent_merge_list_path}"
+	echo "no recent_merge_list_path: ${recent_merge_list_path}"
 	exit 0
 fi
-if [ ! -e "${before_merge_list_path}" ];then 
-	echo "no ${before_merge_list_path}"
+if [ ! -e "${before_merge_list_path}" ] \
+	&& [ "${second_para}" != "${CURRENT_TARGET_DIR_ORDER}" ];then 
+	echo "no before_merge_list_path: ${before_merge_list_path}"
 	exit 0
 fi
 
+
+case "${second_para}" in
+	"${CURRENT_TARGET_DIR_ORDER}")
+		CUR_DIFF_OPTION="${CUR_DIFF_ARGS_NAME}"
+		DRY_BK_OPTION="${DRY_BK_ARGS_NAME}"
+		. ${DIFBK_DIR_PATH}/exec_dfbk_bk.sh 
+;;esac
+
+
 sed_before_diff_label=""
 diff_file_pair_con=""
-echo_diff_file_pair_con \
+TARGET_MERGE_LIST=""
+make_diff_file_pair_and_label_and_target_merge_list \
+	"${second_para}" \
 	"${recent_merge_list_path}" \
 	"${before_merge_list_path}"
-# make desk
-TARGET_MERGE_LIST="$(\
-	echo "${diff_file_pair_con}" \
-	| sed -r 's/"(.*)"/\1/' \
-	| sed 's/\.\./'${SED_TARGET_PAR_DIR_PATH}'/'\
-)"
+
+
 DFBK_DESK_CAT_FILE_CON=$(\
 	desk_cat_func \
 		"${TARGET_MERGE_LIST}"\

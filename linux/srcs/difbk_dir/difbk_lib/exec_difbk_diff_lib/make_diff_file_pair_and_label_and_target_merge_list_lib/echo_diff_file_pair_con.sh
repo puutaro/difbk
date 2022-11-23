@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-echo_diff_file_pair_con_lib_path="${EXEC_DIFBK_DIFF_LIB_PATH}/echo_diff_file_pair_con_lib"
+echo_diff_file_pair_con_lib_path="${MAKE_DIFF_FILE_PAIR_AND_LABEL_AND_TARGET_MERGE_LIST_LIB_PATH}/echo_diff_file_pair_con_lib"
 . "${echo_diff_file_pair_con_lib_path}/exec_echo_diff_file_pair_con.sh"
 
 unset -v echo_diff_file_pair_con_lib_path
@@ -12,6 +12,8 @@ echo_diff_file_pair_con(){
 	local before_merge_list_path="${2}"
 	LS_CREATE_BUCKUP_MERGE_CONTENTS=""
 	LS_DELETE_BUCKUP_MERGE_CONTENTS=""
+	ls_current_dir_contents="$(zcat "${recent_merge_list_path}")"
+	ls_backup_dir_c_for_diff="$(zcat "${before_merge_list_path}")"
 	substitute_unique_con_by_comparing_two \
 		"$(zcat "${recent_merge_list_path}")" \
 		"$(zcat "${before_merge_list_path}")"

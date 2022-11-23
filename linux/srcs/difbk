@@ -27,13 +27,14 @@ readonly CHECH_SUM_DIR_INFO="ddddd"
 readonly DIFBK_SCH_CMD_VALIABLE="sch"
 readonly DIFBK_DIFF_CMD_VALIABLE="diff"
 readonly DIFBK_BK_CMD_VALIABLE="bk"
+readonly DIFBK_ST_CMD_VALIABLE="st"
 readonly DIFBK_LRS_CMD_VALIABLE="lrs"
 readonly DIFBK_RS_CMD_VALIABLE="rs"
 readonly DIFBK_CLEAN_CMD_VALIABLE="clean"
 readonly DIFBK_MRG_CMD_VALIABLE="mrg"
 readonly DIFBK_HELP_CMD_VALIABLE="help"
 readonly DIFBK_BLANK_MARK="DIFBK_BLANK_MARK"
-readonly DISPLAY_NUM_LIST=10
+readonly DISPLAY_NUM_LIST=30
 readonly SED_TTTTBBBB="ttttbbbb"
 readonly GGIP_EXETEND=".gz"
 readonly DFBK_GGIP_EXETEND=".difbk.gz"
@@ -51,6 +52,8 @@ readonly BUCKUP_CLEAN_ARGS_NAME="-dddd"
 readonly LATEST_MERGE_LIST_VALIDATE_ARGS_NAME="-vl"
 readonly ALT_ARGS_NAME="-alt"
 readonly DEST_ARGS_NAME="-dest"
+readonly DRY_BK_ARGS_NAME="-dry-bk"
+readonly CUR_DIFF_ARGS_NAME="-cur-diff"
 readonly OLD_PREFIX="old"
 SHIFT_SEED=0
 C_OPTION=""
@@ -68,6 +71,8 @@ O_OPTION=""
 LN_OPTION=""
 J_OPTION=""
 FULL_OPTION=""
+DRY_BK_OPTION=""
+CUR_DIFF_OPTION=""
 DIFBK_ARGUMENT=""
 DIFBK_ARGUMENT_LIST=""
 DELETE_SUPPER_ORDER_NUM_FOR_MERGE_LIST=""
@@ -88,6 +93,7 @@ readonly DFBK_IGNORE_FILE_NAME=".difbk_ignore"
 readonly DFBK_IGNORE_FILE_PATH="${TARGET_DIR_PATH}/${DFBK_IGNORE_FILE_NAME}"
 readonly DFBK_SETTING_DIR_NAME=".difbk_culc"
 readonly DFBK_SETTING_DIR_PATH="${HOME}/${DFBK_SETTING_DIR_NAME}"
+readonly DFBK_CREATE_CON_PATH="${DFBK_SETTING_DIR_PATH}/create_merge_list"
 readonly TARGET_PAR_DIR_PATH=$(dirname ${TARGET_DIR_PATH})
 readonly BUCK_UP_DIR_NAME="${OLD_PREFIX}_${TARGET_DIR_NAME}"
 readonly BUCK_UP_DIR_PATH="${TARGET_PAR_DIR_PATH}/${BUCK_UP_DIR_NAME}"
@@ -124,6 +130,8 @@ case "${DIFB_SUBCMD_INCLUDE_EJECT}" in
 case "${DIFBK_SUB_CMD}" in
 "${DIFBK_BK_CMD_VALIABLE}") 
 	. ${DIFBK_DIR_PATH}/exec_dfbk_bk.sh ;;
+"${DIFBK_ST_CMD_VALIABLE}") 
+	. ${DIFBK_DIR_PATH}/exec_dfbk_st.sh ;;
 "${DIFBK_RS_CMD_VALIABLE}") 
 	. ${DIFBK_DIR_PATH}/exec_dfbk_rs.sh ;;
 "${DIFBK_CLEAN_CMD_VALIABLE}") 

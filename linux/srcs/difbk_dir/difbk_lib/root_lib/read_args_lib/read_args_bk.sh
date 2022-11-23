@@ -10,6 +10,9 @@ read_args_bk(){
 			echo "bk option is invalid in bk"
 			exit 0
 			;;
+		"${DRY_BK_ARGS_NAME}")
+			DRY_BK_OPTION="${DRY_BK_ARGS_NAME}"
+			;;
 		-d)
 			D_OPTION="${1}, ${2}"
 			shift;;

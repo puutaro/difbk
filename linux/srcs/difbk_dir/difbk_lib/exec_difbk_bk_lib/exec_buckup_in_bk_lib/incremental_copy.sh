@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-incremental_copy_lib_path="${DIFBK_BK_LIB_DIR_PATH}/incremental_copy_lib"
+incremental_copy_lib_path="${EXEC_BUCKUP_IN_BK_LIB}/incremental_copy_lib"
 . "${incremental_copy_lib_path}/echo_updated_old_backup_create_dir_path.sh"
 . "${incremental_copy_lib_path}/echo_mkdir_shell_con.sh"
 . "${incremental_copy_lib_path}/make_cp_shell_file.sh"

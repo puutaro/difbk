@@ -23,6 +23,7 @@ read_args(){
 			LSLABEL_CON=""
 			MKLABEL_CON=""
 			RMLABEL_CON=""
+			DRY_BK_OPTION=""
 			read_args_bk "$@"
 		;;
 		"${DIFBK_RS_CMD_VALIABLE}")

@@ -26,11 +26,9 @@ DIFBK_BK_LIB_DIR_PATH="${DIFBK_LIB_DIR_PATH}/exec_difbk_bk_lib"
 . "${DIFBK_BK_LIB_DIR_PATH}/echo_ls_current_dir_contents.sh"
 . "${DIFBK_BK_LIB_DIR_PATH}/echo_removed_path_to_create_bauckup_dir.sh"
 . "${DIFBK_BK_LIB_DIR_PATH}/substitute_common_con_by_marging_two.sh"
-. "${DIFBK_BK_LIB_DIR_PATH}/place_discription_file.sh"
-. "${DIFBK_BK_LIB_DIR_PATH}/make_marge_list_file.sh"
 . "${DIFBK_BK_LIB_DIR_PATH}/insert_row_path_from_contents.sh"
-. "${DIFBK_BK_LIB_DIR_PATH}/incremental_copy.sh"
 . "${DIFBK_BK_LIB_DIR_PATH}/display_bk_result.sh"
+. "${DIFBK_BK_LIB_DIR_PATH}/exec_buckup_in_bk.sh"
 
 
 unset -v DIFBK_BK_LIB_DIR_PATH
@@ -43,7 +41,6 @@ LS_BUCKUP_MERGE_CONTENTS=""
 get_buckup_con_from_recent_merge_con
 AFTER_DESC_CONTENTS=""
 make_description
-
 wait_spin \
 	"${checksum_calc_and_write_out_to_file_pid}" \
 	"difbk is culclating"
@@ -100,19 +97,10 @@ case "${LS_CREATE_BUCKUP_MERGE_CONTENTS}" in
 	;;
 esac
 
-if [ ! -d ${BUCKUP_MERGE_CONTENSTS_LIST_DIR_PATH} ];then 
-	mkdir -p ${BUCKUP_MERGE_CONTENSTS_LIST_DIR_PATH}; 
-fi
-
-
-incremental_copy \
-	"${LS_CREATE_BUCKUP_MERGE_CONTENTS}"
-wait
-
-make_marge_list_file \
-	"${LS_BUCKUP_MERGE_CONTENTS}"
-
-place_discription_file \
+exec_buckup_in_bk \
+	"${BUCKUP_MERGE_CONTENSTS_LIST_DIR_PATH}" \
+	"${LS_CREATE_BUCKUP_MERGE_CONTENTS}" \
+	"${LS_BUCKUP_MERGE_CONTENTS}" \
 	"${AFTER_DESC_CONTENTS}"
 
 
@@ -120,3 +108,9 @@ display_bk_result \
 	"${LS_CREATE_BUCKUP_MERGE_CONTENTS}" \
 	"${LS_DELETE_BUCKUP_MERGE_CONTENTS}"
 
+
+case "${CUR_DIFF_OPTION}" in
+	"");;
+	*) echo "${LS_CREATE_BUCKUP_MERGE_CONTENTS}" \
+			> "${DFBK_CREATE_CON_PATH}"
+;; esac

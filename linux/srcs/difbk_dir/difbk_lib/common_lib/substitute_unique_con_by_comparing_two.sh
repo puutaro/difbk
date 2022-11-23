@@ -8,8 +8,6 @@ substitute_unique_con_lib_path="${DIFBK_COMMON_LIB_PATH}/substitute_unique_con_b
 
 
 substitute_unique_con_by_comparing_two(){
-	local ls_current_dir_contents="${1}"
-	local ls_backup_dir_c_for_diff="${2}"
 	local ls_current_dir_contents_for_join="$(\
 		remake_path_for_join \
 			"${ls_current_dir_contents}" \
