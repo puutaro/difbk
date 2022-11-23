@@ -7,7 +7,7 @@ exec_rm_label(){
 		"") return 
 	;; esac
 	local sed_rmlabel_con=$(\
-		echo "${RMLABEL_CON}" \
+		echo "${RMLABEL_CON^^}" \
 			| sed -r 's/([\\])/\\\\\\\1/g' \
 			| sed -r "s/([^a-zA-Z0-9_'\#\)\(\|\{\}\+\;\:\<\>])/\\\\\1/g" \
 	)

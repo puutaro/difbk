@@ -15,7 +15,7 @@ exec_mk_label(){
 		return
 	fi
 	local sed_mklabel_con=$(\
-		echo "${MKLABEL_CON}" \
+		echo "${MKLABEL_CON^^}" \
 			| sed -r 's/([^a-zA-Z0-9_])/\\\1/g' \
 	)
 	sed "1i ${sed_mklabel_con}" \
