@@ -23,7 +23,6 @@ desk_rga_v_cmd=$(\
 )
 unset -v rga_after_num
 
-echo "E_OPTION ${E_OPTION}"
 case "${E_OPTION}" in
 	"")
 		display_merge_list_by_daily
