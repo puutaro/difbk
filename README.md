@@ -24,6 +24,7 @@ Table of Contents
 * [Demo](#demo)
 * [Usage](#usage)
   * [Buckup](#buckup)
+  * [Status](#status)
   * [List backup files](#list-backup-files)
   * [Search](#search)
   	* [Path search](#path-search)
@@ -88,6 +89,17 @@ difbk bk -d "{backup description}"
     | `-ln`  | no | when backup, not add label stamp |
 
 
+### Status
+
+It mean confirm status
+
+1. type bellow command
+
+```
+difbk st
+```
+
+![image](https://user-images.githubusercontent.com/55217593/203556258-fa2c36bf-6679-43d5-8d12-046ac8e24efe.png)
 
 ### List backup files
 `difbk` management backup generation by backup files's text file(in fact commpressed into gz). Here list backup's list text files. this subcommand is base command in `difbk`. This is used for `sch`, `rs` and `diff`, etc.
@@ -162,7 +174,7 @@ difbk sch -c {search path word}
 1. type bellow command
 
 ```
-difbk diff {generation number or backup list file path or backuped file path}
+difbk diff { blank (current direcotry diff) | generation number or backup list file path or backuped file path}
 ```
 
 ![image](https://user-images.githubusercontent.com/55217593/201114773-be3d04b6-c8e1-4fd5-8f77-cbe7b1b13564.png)
