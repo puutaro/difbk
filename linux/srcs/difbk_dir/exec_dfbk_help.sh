@@ -16,6 +16,11 @@ display_help(){
 	echo -e "\t\t[-lslabel {word}: list the registerd labels"
 
 	echo ---
+	echo "####  st (status)"
+	echo "feature: change files"
+	echo "cmd:  difbk st"
+
+	echo ---
 	echo "####  lrs "
 	echo "feature: ls merge_list"
 	echo "cmd:  difbk lrs ([-e: every one] [-d {word}: desc search for {word}(And search with multiple specifications )] "
@@ -37,7 +42,7 @@ display_help(){
 	echo ---
 	echo "####  diff "
 	echo "feature: merge date diff from recnt and num date"
-	echo "cmd:  difbk diff ([target mergelist number (reffrer lrs merge list num or target file)|merge list path|diff target file path] ([-d(|e|v) desc search])"
+	echo "cmd:  difbk diff ([blank(current dir diff) | target mergelist number (reffrer lrs merge list num or target file)|merge list path|diff target file path] ([-d(|e|v) desc search])"
 	echo -e "\t\t[-d {word}: desc search for {word}(And search with multiple specifications )]"
 	echo -e "\t\t[-dv {word}: desc exclude search (And search with multiple specifications )"
 	echo -e "\t\t[-de {word}: desc or search (Or search with multiple specifications, cannot be combined with normal desc search)"
