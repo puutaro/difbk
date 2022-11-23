@@ -21,7 +21,7 @@ display_bk_result(){
 			echo "${ls_delete_buckup_merge_contents}" \
 				| cut -f2 \
 				| head -n ${DISPLAY_NUM_LIST}\
-				| sed -r 's/(.*)/\x1b[1;38;5;130m\1\x1b[0m/' \
+				| sed -r 's/(.*)/\x1b[38;5;130m\1\x1b[0m/' \
 	)"
 	case "${ls_create_buckup_merge_contents}" in 
 		"") create_item_total=0 ;; 
@@ -35,7 +35,7 @@ display_bk_result(){
 		echo "${ls_create_buckup_merge_contents}" \
 		| cut -f2 \
 		| head -n "${DISPLAY_NUM_LIST}"\
-		| sed -r 's/(.*)/\x1b[1;38;5;2m\1\x1b[0m/' \
+		| sed -r 's/(.*)/\x1b[38;5;2m\1\x1b[0m/' \
 	)"
 	echo "delete_items total: ${delete_item_total}"
 	echo "create_items total: ${create_item_total}"
