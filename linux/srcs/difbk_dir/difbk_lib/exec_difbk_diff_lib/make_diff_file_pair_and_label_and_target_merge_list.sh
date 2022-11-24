@@ -42,6 +42,4 @@ make_diff_file_pair_and_label_and_target_merge_list(){
 			"${DFBK_CREATE_CON_PATH}" \
 			"${TARGET_MERGE_LIST}" \
 	)
-	
-
 }

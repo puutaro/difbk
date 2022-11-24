@@ -106,7 +106,6 @@ make_diff_file_pair_and_label_and_target_merge_list \
 	"${recent_merge_list_path}" \
 	"${before_merge_list_path}"
 
-
 DFBK_DESK_CAT_FILE_CON=$(\
 	desk_cat_func \
 		"${TARGET_MERGE_LIST}"\
