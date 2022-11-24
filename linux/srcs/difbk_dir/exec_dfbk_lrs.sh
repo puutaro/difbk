@@ -21,8 +21,14 @@ desk_rga_v_cmd=$(\
 	echo_desk_rga_v_cmd \
 		"${rga_after_num}"\
 )
+
+before_and_after_delete_cmd=$(\
+	echo_before_and_after_delete_cmd \
+		"${rga_after_num}" \
+)
 unset -v rga_after_num
 
+EXEC_ECHO_LRS_PATH="${DFBK_SETTING_DIR_PATH}/exec_echo_lrs.sh"
 case "${E_OPTION}" in
 	"")
 		display_merge_list_by_daily

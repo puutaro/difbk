@@ -58,7 +58,6 @@ before_and_after_delete_cmd=$(\
 	echo_before_and_after_delete_cmd \
 		"${rga_after_num}" \
 )
-
 TARGET_MERGE_LIST=""
 TARGET_MERGE_LIST_PATH=""
 make_target_merge_list_and_path \

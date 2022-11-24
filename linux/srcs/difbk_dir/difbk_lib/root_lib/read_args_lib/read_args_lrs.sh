@@ -12,6 +12,12 @@ read_args_lrs(){
 		-d)
 			D_OPTION+="${DESC_PREFIX}.*${2}"
 			shift;;
+		-da)
+			DA_OPTION_ENTRY="${2}"
+			shift;;
+		-db)
+			DB_OPTION_ENTRY="${2}"
+			shift;;
 		-dv)
 			DV_OPTION+=",${DESC_PREFIX}.*${2}"
 			shift;;

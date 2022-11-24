@@ -17,10 +17,10 @@ read_args_sch(){
 			shift
 			;;
 		-da)
-			DA_OPTION+="${DESC_PREFIX}.*${2}"
-					shift;;
+			DA_OPTION_ENTRY="${2}"
+			shift;;
 		-db)
-			DB_OPTION+="${DESC_PREFIX}.*${2}"
+			DB_OPTION_ENTRY="${2}"
 			shift;;
 		-dv)
 			DV_OPTION+=",${DESC_PREFIX}.*${2}"

@@ -39,6 +39,8 @@ read_args(){
 			dRGA_OPTION=""
 			E_OPTION=""
 			DIFBK_ARGUMENT=""
+			DA_OPTION_ENTRY=""
+			DB_OPTION_ENTRY=""
 			read_args_lrs "$@"
 			;;
 		"${DIFBK_SCH_CMD_VALIABLE}")
@@ -48,6 +50,8 @@ read_args(){
 			dRGA_OPTION=""
 			E_OPTION=""
 			DIFBK_ARGUMENT=""
+			DA_OPTION_ENTRY=""
+			DB_OPTION_ENTRY=""
 			read_args_sch "$@"
 			;;
 		"${DIFBK_DIFF_CMD_VALIABLE}")
@@ -57,6 +61,8 @@ read_args(){
 			dRGA_OPTION=""
 			E_OPTION=""
 			DIFBK_ARGUMENT=""
+			DA_OPTION_ENTRY=""
+			DB_OPTION_ENTRY=""
 			read_args_diff "$@"
 			;;
 		"${DIFBK_CLEAN_CMD_VALIABLE}")

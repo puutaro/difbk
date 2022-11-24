@@ -1,6 +1,14 @@
 #!/bin/bash
 
 
+ECHO_BEFORE_AND_AFTER_DELETE_CMD_LIB_PATH="${DIFBK_COMMON_LIB_PATH}/echo_before_and_after_delete_cmd_lib"
+. "${ECHO_BEFORE_AND_AFTER_DELETE_CMD_LIB_PATH}/echo_after_delete_cmd.sh"
+. "${ECHO_BEFORE_AND_AFTER_DELETE_CMD_LIB_PATH}/echo_before_delete_cmd.sh"
+
+
+unset -v ECHO_BEFORE_AND_AFTER_DELETE_CMD_LIB_PATH
+
+
 echo_before_and_after_delete_cmd(){
 	local rga_after_num="${1}"
 	local differ_option="${2:-}"
@@ -12,20 +20,28 @@ echo_before_and_after_delete_cmd(){
 		"") ;; 
 		*) local diff_delete_sed=" | sed '1,${rga_after_num}d'"
 	;;esac
-	case "${DB_OPTION:-}" in 
-		"");; 
-		*) 
-			local sed_db_option=$(echo ${DB_OPTION:-} | sed  's/\//\\\//g')
-			local before_delete_cmd=" | sed -n '/${diff_prefix:-}${sed_db_option}/,\$!p'"
-	;;esac
-	case "${DA_OPTION:-}" in 
-		"");; 
-		*) 
-		local sed_da_option=$(\
-			echo ${DA_OPTION-} \
-				| sed  's/\//\\\//g'\
-		)
-		local after_delete_cmd=" | sed -n '1,/${diff_prefix:-}${sed_da_option:-}/!p' ${diff_delete_sed:-}"
-	;;esac
+	case "${DB_OPTION_ENTRY:-}${DA_OPTION_ENTRY:-}" in
+		"") 
+			echo ""
+			return		
+	;;esac 
+	local minutes_dir_depth=4
+	local minits_depth_paths_con=$(\
+		fd . "../${BUCK_UP_DIR_NAME}" \
+			-d "${minutes_dir_depth}" -t d \
+		| rga "[0-9]{4}/[0-9]{2}/[0-9]{2}/[0-9]{4}" \
+		| sed \
+			-e 's/\.\.\/'${BUCK_UP_DIR_NAME}'\///'
+	)
+	local before_delete_cmd="$(\
+		echo_before_delete_cmd \
+			"${minits_depth_paths_con}"\
+			"${DB_OPTION_ENTRY}"\
+	)"
+	local after_delete_cmd="$(\
+		echo_after_delete_cmd \
+			"${minits_depth_paths_con}"\
+			"${DA_OPTION_ENTRY}"\
+	)"
 	echo "${before_delete_cmd:-} ${after_delete_cmd:-}"
 }
