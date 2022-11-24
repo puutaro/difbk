@@ -24,8 +24,11 @@ display_help(){
 	echo "####  lrs "
 	echo "feature: ls merge_list"
 	echo "cmd:  difbk lrs ([-e: every one] [-d {word}: desc search for {word}(And search with multiple specifications )] "
+	echo -e "\t\t[-d {word}: desc search for {word}(And search with multiple specifications )]"
 	echo -e "\t\t[-dv {word}: desc exclude search (And search with multiple specifications )"
 	echo -e "\t\t[-de {word}: desc or search (Or search with multiple specifications, cannot be combined with normal desc search)"
+	echo -e "\t\t[-db {YYYY/MM/DD/hhmm}: delete before datetime in description (leaves future)"
+	echo -e "\t\t[-da {YYYY/MM/DD/hhmm}: delete after datetime in description (leaves past)"
 
 	echo ---
 	echo "####  sch "
