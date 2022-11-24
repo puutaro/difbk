@@ -16,5 +16,5 @@ echo_sch_paste_con_merge_list_path_or_num(){
 		| sed  -r 's/(.*)/desk_con=$(echo "'${DESC_PREFIX}' \1" | sed  -r "s\/([^a-zA-Z0-9_])\/\\\\\\\\\\1\/g")/'\
 	) \
 	| sed \
-		-r "s/(.*)\t(.*)/\2; target_desk_con=\$(echo \"${sed_target_desk_con}\" | sed  -r 's\/([^a-zA-Z0-9_])\/\\\\\\\\\\\\1\/g');\n\1/"
+		-r "s/(.*)\t(.*)/target_desk_con=\$(echo \"${sed_target_desk_con}\" | sed  -r 's\/([^a-zA-Z0-9_])\/\\\\\\\\\\\\1\/g'); \2; \n\1/"
 }
