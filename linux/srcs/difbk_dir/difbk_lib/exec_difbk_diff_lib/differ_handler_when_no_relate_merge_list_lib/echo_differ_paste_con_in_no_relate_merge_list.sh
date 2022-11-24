@@ -9,7 +9,7 @@ echo_differ_paste_con_in_no_relate_merge_list(){
 			echo "${diff_target_file_path}" \
 			| sed 's/'${SED_TARGET_PAR_DIR_PATH}'/../' \
 			| sed \
-				-re 's/^(.*)/d_file2_path="\1"; diff_con=\$(colordiff -u  <(zcat  "\1") <(zcat  "'${SED_TARGET_PAR_DIR_PATH}''${sed_diff_target_file}'"))/' \
+				-re 's/^(.*)/d_file2_path="\1"; diff_con=\$(colordiff -u  <(zcat  "\1") <(zcat  "'${SED_TARGET_PAR_DIR_PATH}''${sed_diff_target_file}'") | sed "1,2d")/' \
 		) \
 		<(\
 			echo "${DFBK_DESK_CAT_FILE_CON}" \
