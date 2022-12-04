@@ -8,7 +8,7 @@ exec_mk_label(){
 	;; esac
 	if [ ! -e "${DFBK_LABEL_FILE_PATH}" ] \
 		|| [ ! -s "${DFBK_LABEL_FILE_PATH}" ];then 
-		echo "${MKLABEL_CON}" \
+		echo "${MKLABEL_CON^^}" \
 			> "${DFBK_LABEL_FILE_PATH}"
 		LSLABEL_CON="${LSLABEL_ARGS}"
 		exec_ls_label
