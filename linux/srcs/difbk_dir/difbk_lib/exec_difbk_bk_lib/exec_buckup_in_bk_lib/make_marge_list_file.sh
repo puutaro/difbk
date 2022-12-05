@@ -2,8 +2,9 @@
 
 
 make_marge_list_file(){
-	local ls_buckup_merge_contents="${1}"
-	echo "${ls_buckup_merge_contents}" \
+	echo "${LS_BUCKUP_MERGE_CONTENTS}" \
+		| sort -k 2,2 \
+		| uniq \
 		> "${BUCKUP_MERGE_CONTENSTS_LIST_FILE_PATH}"
 	gzip ${BUCKUP_MERGE_CONTENSTS_LIST_FILE_PATH} \
 		&& mv \

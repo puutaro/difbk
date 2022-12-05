@@ -55,5 +55,4 @@ checksum_calc_and_write_out_to_file(){
 	| sed "$ s/\\\\$/ >> \"${SED_DFBK_CHECK_SUM_OUTPUT_FILE_RCEIVE_PATH}\"/" \
 		> "${DFBK_CHECK_SUM_OUTPUT_FILE_PATH}" \
 	&& bash "${DFBK_CHECK_SUM_OUTPUT_FILE_PATH}"
-	sleep 10
 }
