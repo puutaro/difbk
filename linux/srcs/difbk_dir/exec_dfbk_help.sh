@@ -60,7 +60,7 @@ display_help(){
 	echo ---
 	echo "####  rs "
 	echo "feature: restore"
-	echo "cmd:  difbk rs  [mergelist_path (reffrer lrs merge list)|cp or merge bkfile path] [restore terget path] [grep path from merge_list]"
+	echo "cmd:  difbk rs  [mergelist_path (reffrer lrs merge list)|cp or merge bkfile path] [restore terget path] [grep path(sart target dirname right under path) from merge_list]"
 	echo -e "\t\t[-c: copy buckup file to restore terget path]"
 
 	echo ---
