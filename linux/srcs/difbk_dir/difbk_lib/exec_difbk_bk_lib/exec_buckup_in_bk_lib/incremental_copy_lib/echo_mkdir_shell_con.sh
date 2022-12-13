@@ -2,10 +2,9 @@
 
 
 echo_mkdir_shell_con(){
-	local copy_contents="${1}"
 	local get_dir_name_shell_path="${DFBK_SETTING_DIR_PATH}/get_dir_name.sh"
 	local mkdir_shell_con_source=$(\
-		echo "${copy_contents}" \
+		echo "${COPY_CONTENTS}" \
 			| rga "${CHECH_SUM_DIR_INFO}" \
 			| cut -f2 \
 			| sed \
@@ -18,7 +17,7 @@ echo_mkdir_shell_con(){
 			echo "${mkdir_shell_con_source}"
 			return
 	;; esac
-	echo "${copy_contents}" \
+	echo "${COPY_CONTENTS}" \
 		| rga -v "${CHECH_SUM_DIR_INFO}" \
 		| cut -f2 \
 		| sed \

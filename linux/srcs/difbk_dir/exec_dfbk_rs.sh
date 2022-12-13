@@ -36,15 +36,23 @@ end_judge_by_merge_list_path_and_restore_target_dir_path \
 	"${restore_target_dir_path}"
 
 echo " wait restore culc" 
-ls_buckup_merge_contents=$(\
+LS_BUCKUP_MERGE_CONTENTS=$(\
 	echo_ls_buckup_merge_contents\
 		"${exist_merge_list_path}"\
 		"${grep_path_source_against_merge_list}"\
 )
+case "${LS_BUCKUP_MERGE_CONTENTS}" in
+	"") echo "no exist for restore contents"
+		return 
+;; esac
 remove_when_exist_restore_target_dir \
 	"${restore_target_dir_path}"
 copy_and_unzip \
-	"${ls_buckup_merge_contents}" \
-	"${restore_target_dir_path}"
+	"${restore_target_dir_path}" \
+	"${LS_BUCKUP_MERGE_CONTENTS}"
 wait
-echo "total: $(echo "${ls_buckup_merge_contents}" | wc -l | sed 's/\ //g')"
+echo "total: $(\
+		echo "${LS_BUCKUP_MERGE_CONTENTS}" \
+		| wc -l \
+		| sed 's/\ //g'\
+	)"

@@ -10,20 +10,19 @@ unset -v incremental_copy_lib_path
 
 
 incremental_copy(){
-	local copy_source_contents="${1}"
 	local sed_buck_up_create_dir_path=$(\
 			echo "${BACKUP_CREATE_DIR_PATH}" \
 			| sed 's/\//\\\//g'\
 	)
 	local mkdir_shell_path="${DFBK_SETTING_DIR_PATH}/copy_mkdir.sh"
-	local copy_contents=$(\
+	local COPY_CONTENTS=$(\
 		echo_updated_old_backup_create_dir_path \
-			"${copy_source_contents}" \
 			"${sed_buck_up_create_dir_path}" \
+			"${LS_CREATE_BUCKUP_MERGE_CONTENTS}" \
 		)
 	local mkdir_shell_con=$(\
 		echo_mkdir_shell_con \
-			"${copy_contents}" \
+			"${COPY_CONTENTS}" \
 	)
 	echo "${mkdir_shell_con}" \
 		| sed \
@@ -34,8 +33,8 @@ incremental_copy(){
 	wait
 	local file_cp_shell_path="${DFBK_SETTING_DIR_PATH}/copy_file.sh"
 	make_cp_shell_file \
-		"${copy_source_contents}" \
 		"${file_cp_shell_path}" \
-		"${sed_buck_up_create_dir_path}"
+		"${sed_buck_up_create_dir_path}" \
+		"${LS_CREATE_BUCKUP_MERGE_CONTENTS}"
 	bash "${file_cp_shell_path}"
 }

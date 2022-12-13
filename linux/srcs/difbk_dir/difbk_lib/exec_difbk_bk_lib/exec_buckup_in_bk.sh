@@ -22,5 +22,5 @@ exec_buckup_in_bk(){
 		"${LS_BUCKUP_MERGE_CONTENTS}"
 
 	place_discription_file \
-	"${AFTER_DESC_CONTENTS}"
+		"${AFTER_DESC_CONTENTS}"
 }

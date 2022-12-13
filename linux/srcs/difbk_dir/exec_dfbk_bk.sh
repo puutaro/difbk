@@ -59,7 +59,6 @@ ls_backup_dir_c_for_diff=$(\
 		"${LS_BUCKUP_MERGE_CONTENTS}"
 )
 
-
 LS_CREATE_BUCKUP_MERGE_CONTENTS=""
 LS_DELETE_BUCKUP_MERGE_CONTENTS=""
 substitute_unique_con_by_comparing_two \
@@ -75,7 +74,6 @@ LS_BUCKUP_MERGE_CONTENTS=$(\
 		"${LS_BUCKUP_MERGE_CONTENTS}" \
 		"${LS_DELETE_BUCKUP_MERGE_CONTENTS}" \
 )
-
 
 LS_BUCKUP_MERGE_CONTENTS=$(\
 	substitute_common_con_by_marging_two \

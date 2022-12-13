@@ -2,10 +2,9 @@
 
 
 make_cp_shell_file(){
-	local copy_source_contents="${1}"
-	local file_cp_shell_path="${2}"
-	local sed_buck_up_create_dir_path="${3}"
-	echo "${copy_source_contents}" \
+	local file_cp_shell_path="${1}"
+	local sed_buck_up_create_dir_path="${2}"
+	echo "${LS_CREATE_BUCKUP_MERGE_CONTENTS}" \
 		| rga -v "${CHECH_SUM_DIR_INFO}" \
 		| cut -f2 \
 		| sed \

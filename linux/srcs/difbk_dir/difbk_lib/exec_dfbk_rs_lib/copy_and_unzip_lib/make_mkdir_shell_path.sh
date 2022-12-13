@@ -2,10 +2,9 @@
 
 
 make_mkdir_shell_path(){
-	local input_copy_contents="${1}"
-	local sed_buck_up_create_dir_path="${2}"
-	local mkdir_shell_path="${3}"
-	echo "${input_copy_contents}" \
+	local sed_buck_up_create_dir_path="${1}"
+	local mkdir_shell_path="${2}"
+	echo "${LS_BUCKUP_MERGE_CONTENTS}" \
 		| rga "${CHECH_SUM_DIR_INFO}" \
 		| cut -f2 \
 		| sed \
