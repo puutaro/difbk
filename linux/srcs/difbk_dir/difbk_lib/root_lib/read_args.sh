@@ -9,6 +9,7 @@ READ_ARGS_LIB_PATH="${DIFBK_ROOT_LIB_PATH}/read_args_lib"
 . "${READ_ARGS_LIB_PATH}/read_args_diff.sh"
 . "${READ_ARGS_LIB_PATH}/read_args_clean.sh"
 . "${READ_ARGS_LIB_PATH}/read_args_mrg.sh"
+. "${READ_ARGS_LIB_PATH}/read_args_reset.sh"
 
 
 difbk_sub_cmd="${DIFBK_SUB_CMD}"
@@ -74,6 +75,10 @@ read_args(){
 			ALT_OPTION_LIST=""
 			DEST_PAR_DIR_NAME=""
 			read_args_mrg "$@"
+			;;
+		"${DIFBK_RESET_CMD_VALIABLE}")
+			S_OPTION=""
+			read_args_reset "$@"
 			;;
 	esac
 }

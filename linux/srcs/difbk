@@ -27,6 +27,7 @@ readonly CHECH_SUM_DIR_INFO="ddddd"
 readonly DIFBK_SCH_CMD_VALIABLE="sch"
 readonly DIFBK_DIFF_CMD_VALIABLE="diff"
 readonly DIFBK_BK_CMD_VALIABLE="bk"
+readonly DIFBK_RESET_CMD_VALIABLE="reset"
 readonly DIFBK_ST_CMD_VALIABLE="st"
 readonly DIFBK_LRS_CMD_VALIABLE="lrs"
 readonly DIFBK_RS_CMD_VALIABLE="rs"
@@ -146,4 +147,6 @@ case "${DIFBK_SUB_CMD}" in
 	LANG="ja_JP.UTF-8" . ${DIFBK_DIR_PATH}/exec_dfbk_help.sh ;;
 "${DIFBK_MRG_CMD_VALIABLE}") 
 	. ${DIFBK_DIR_PATH}/exec_dfbk_mrg.sh ;;
+"${DIFBK_RESET_CMD_VALIABLE}")
+	. ${DIFBK_DIR_PATH}/exec_dfbk_reset.sh ;;
 esac
