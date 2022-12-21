@@ -25,6 +25,7 @@ Table of Contents
 * [Usage](#usage)
   * [Buckup](#buckup)
   * [Status](#status)
+  * [Reset](#reset)
   * [List backup files](#list-backup-files)
   * [Search](#search)
   	* [Path search](#path-search)
@@ -100,6 +101,22 @@ difbk st
 ```
 
 ![image](https://user-images.githubusercontent.com/55217593/203556258-fa2c36bf-6679-43d5-8d12-046ac8e24efe.png)
+
+
+
+### Reset
+remove recent backup  
+1. type bellow command
+
+```
+difbk reset  
+```
+
+- lrs option
+
+    | option| set value | comment  |
+    | --------- | --------- | ------------ |
+    | `-s` | no | without comfirm, remove it |
 
 ### List backup files
 `difbk` management backup generation by backup files's text file(in fact commpressed into gz). Here list backup's list text files. this subcommand is base command in `difbk`. This is used for `sch`, `rs` and `diff`, etc.
