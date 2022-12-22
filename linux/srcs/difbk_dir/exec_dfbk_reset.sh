@@ -11,13 +11,14 @@ delete_recent_datetime_bkdir="..$(\
 	echo_recent_backup_datetime_directory_path\
 )"
 
+case "${delete_recent_datetime_bkdir}" in
+	"..") exit 0 ;;esac
 
 case "${S_OPTION}" in
 	"") reset_confirm \
 			"${delete_recent_datetime_bkdir}"
 		;;
-	*)  echo "delete_recent_datetime_bkdir ${delete_recent_datetime_bkdir}"
-		;;
 esac
 
 rm -rf "${delete_recent_datetime_bkdir}"
+echo "delete_recent_datetime_bkdir ${delete_recent_datetime_bkdir}"
