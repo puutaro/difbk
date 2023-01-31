@@ -16,6 +16,11 @@ display_help(){
 	echo -e "\t\t[-lslabel {word}: list the registerd labels\n"
 
 	echo ---
+	echo "####  rbk (restore buckup to current project directory)"
+	echo "feature: restore backup"
+	echo "cmd:  difbk rbk merge list order num (number in left brackets when type difkb lrs -e )"
+
+	echo ---
 	echo "####  reset"
 	echo "feature: remove recent buckup"
 	echo -e "cmd:  difbk reset ([-s (no confirm)]\n"
