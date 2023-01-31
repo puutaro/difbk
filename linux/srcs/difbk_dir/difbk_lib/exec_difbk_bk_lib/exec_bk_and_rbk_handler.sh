@@ -26,6 +26,39 @@ exec_bk_and_rbk_handler(){
 		;;
 	esac
 
+	exec_rbk_dir_path="${DFBK_SETTING_DIR_PATH}/rbk"
+	if [ ! -e "${exec_rbk_dir_path}" ];then
+		mkdir -p "${exec_rbk_dir_path}"
+	fi
+
+	wrapper_exec_remove \
+		"${exec_rbk_dir_path}" \
+		"${LS_CREATE_BUCKUP_MERGE_CONTENTS}"
+
+
+	wrapper_exec_copy_and_unzip \
+		"${merge_list_file_path}" \
+		"${LS_DELETE_BUCKUP_MERGE_CONTENTS}" \
+		"${LS_BUCKUP_MERGE_CONTENTS}"
+
+
+
+}
+
+
+wrapper_exec_remove(){
+	local exec_rbk_dir_path="${1}"
+	exec_rbk_remove_file_path="${exec_rbk_dir_path}/exec_file_rbk_remove.sh"
+	echo "${LS_CREATE_BUCKUP_MERGE_CONTENTS}" \
+		| rga -v "${CHECH_SUM_DIR_INFO}" \
+		| sed -r 's/(.*)\t(.*)/rm -rf "..\2"/' \
+		> "${exec_rbk_remove_file_path}"
+	bash "${exec_rbk_remove_file_path}"
+}
+
+
+wrapper_exec_copy_and_unzip(){
+	local merge_list_file_path="${1}"
 	local rsbk_mrg_dir_path="$(dirname ${merge_list_file_path})"
 	local rsbk_cr_dir_path="$(dirname "${rsbk_mrg_dir_path}")/${BACKUP_CREATE_DIR_NAME}"
 	local buckup_dir_prefix="${rsbk_cr_dir_path//${SED_TARGET_PAR_DIR_PATH}/}" 
@@ -51,6 +84,11 @@ exec_bk_and_rbk_handler(){
 			| rga -v "${CHECH_SUM_DIR_INFO}" \
 			| sed -r 's/(.*)\t(.*)\t(.*)/\1\t\2\3/'\
 	)
+	echo "${LS_BUCKUP_MERGE_CONTENTS}"
+	LS_DELETE_BUCKUP_MERGE_CONTENTS="${LS_BUCKUP_MERGE_CONTENTS}"
+	case "${LS_BUCKUP_MERGE_CONTENTS}" in
+		"") return ;; 
+	esac
 	copy_and_unzip \
 		"${TARGET_PAR_DIR_PATH}"
 }

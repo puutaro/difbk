@@ -11,7 +11,6 @@ read_args_rbk(){
 		*)	
 			j_option_check "${1}"
 			J_OPTION="${1:-} "
-			echo "${J_OPTION}"
 			;;
 	esac
 	shift

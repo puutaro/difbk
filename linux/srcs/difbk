@@ -131,7 +131,6 @@ case "${DIFB_SUBCMD_INCLUDE_EJECT}" in
 	"") ;;
 	*) exit 0
 ;; esac
-
 case "${DIFBK_SUB_CMD}" in
 "${DIFBK_BK_CMD_VALIABLE}") 
 	. "${DIFBK_DIR_PATH}/exec_dfbk_bk.sh" ;;

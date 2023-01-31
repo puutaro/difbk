@@ -15,6 +15,9 @@ copy_and_unzip(){
 			| sed 's/\//\\\//g'\
 	)
 	local mkdir_shell_path="${DFBK_SETTING_DIR_PATH}/copy_mkdir.sh"
+	case "${LS_BUCKUP_MERGE_CONTENTS}" in
+		"") return ;; 
+	esac
 	make_mkdir_shell_path \
 		"${sed_restore_target_dir_path}" \
 		"${mkdir_shell_path}" \

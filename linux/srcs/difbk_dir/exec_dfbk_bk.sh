@@ -35,6 +35,7 @@ DIFBK_BK_LIB_DIR_PATH="${DIFBK_LIB_DIR_PATH}/exec_difbk_bk_lib"
 
 unset -v DIFBK_BK_LIB_DIR_PATH
 
+
 init
 label
 checksum_calc_and_write_out_to_file &
@@ -44,7 +45,6 @@ merge_list_file_path=$(\
 	echo_merge_list_file_path \
 		"${J_OPTION}"
 )
-
 LS_BUCKUP_MERGE_CONTENTS=""
 get_buckup_con_from_recent_merge_con \
 	"${merge_list_file_path}"
@@ -97,22 +97,23 @@ LS_BUCKUP_MERGE_CONTENTS="$(\
 )"
 
 
-
+no_restore_message="no restore buckup target file"
 exec_no_buck_up_exit \
 	"${RS_BK_OPTION}" \
+	"${no_restore_message}" \
 	"${LS_CREATE_BUCKUP_MERGE_CONTENTS}"
-
 
 exec_bk_and_rbk_handler \
 	"${RS_BK_OPTION}" \
 	"${merge_list_file_path}" \
 	"${LS_DELETE_BUCKUP_MERGE_CONTENTS}" \
+	"${LS_CREATE_BUCKUP_MERGE_CONTENTS}" \
 	"${LS_BUCKUP_MERGE_CONTENTS}"
-
 
 
 display_bk_result \
 	"${merge_list_file_path}" \
+	"${no_restore_message}" \
 	"${LS_CREATE_BUCKUP_MERGE_CONTENTS}" \
 	"${LS_DELETE_BUCKUP_MERGE_CONTENTS}"
 
