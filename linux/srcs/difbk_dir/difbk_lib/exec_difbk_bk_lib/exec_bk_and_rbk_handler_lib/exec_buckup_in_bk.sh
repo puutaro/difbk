@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-EXEC_BUCKUP_IN_BK_LIB="${DIFBK_BK_LIB_DIR_PATH}/exec_buckup_in_bk_lib"
+EXEC_BUCKUP_IN_BK_LIB="${EXEC_BK_AND_RBK_HANDLER_LIB_PATH}/exec_buckup_in_bk_lib"
 . "${EXEC_BUCKUP_IN_BK_LIB}/incremental_copy.sh"
 . "${EXEC_BUCKUP_IN_BK_LIB}/make_marge_list_file.sh"
 . "${EXEC_BUCKUP_IN_BK_LIB}/place_discription_file.sh"
@@ -9,6 +9,10 @@ EXEC_BUCKUP_IN_BK_LIB="${DIFBK_BK_LIB_DIR_PATH}/exec_buckup_in_bk_lib"
 
 exec_buckup_in_bk(){
 	case "${DRY_BK_OPTION}" in
+		"");;
+		*) return
+	esac
+	case "${RS_BK_OPTION}" in
 		"");;
 		*) return
 	esac

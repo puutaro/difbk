@@ -19,7 +19,6 @@ handler_for_file_restore\
 	"${restore_target_dir_path}"
 
 
-. "${EXEC_DFBK_RS_LIB_PATH}/copy_and_unzip.sh"
 . "${EXEC_DFBK_RS_LIB_PATH}/echo_exist_merge_list_path.sh"
 . "${EXEC_DFBK_RS_LIB_PATH}/end_judge_by_merge_list_path_and_restore_target_dir_path.sh"
 . "${EXEC_DFBK_RS_LIB_PATH}/echo_ls_buckup_merge_contents.sh"

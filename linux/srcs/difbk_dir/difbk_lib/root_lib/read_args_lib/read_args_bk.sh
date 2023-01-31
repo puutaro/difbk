@@ -13,6 +13,9 @@ read_args_bk(){
 		"${DRY_BK_ARGS_NAME}")
 			DRY_BK_OPTION="${DRY_BK_ARGS_NAME}"
 			;;
+		"${RS_BK_ARGS_NAME}")
+			RS_BK_OPTION="${RS_BK_ARGS_NAME}"
+			;;
 		-d)
 			D_OPTION="${1}, ${2}"
 			shift;;

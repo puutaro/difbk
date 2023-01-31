@@ -8,8 +8,10 @@ unset -v get_buckup_con_from_recent_merge_con_lib_path
 
 
 get_buckup_con_from_recent_merge_con(){
+	local merge_list_file_path="${1}"
 	LS_BUCKUP_MERGE_CONTENTS="$(\
 		exec_get_buckup_con_from_recent_merge_con \
+			"${merge_list_file_path}" \
 	)"
 	case "${FULL_OPTION}" in 
 		"");; 

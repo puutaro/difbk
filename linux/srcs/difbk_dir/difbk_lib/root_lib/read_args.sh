@@ -10,6 +10,7 @@ READ_ARGS_LIB_PATH="${DIFBK_ROOT_LIB_PATH}/read_args_lib"
 . "${READ_ARGS_LIB_PATH}/read_args_clean.sh"
 . "${READ_ARGS_LIB_PATH}/read_args_mrg.sh"
 . "${READ_ARGS_LIB_PATH}/read_args_reset.sh"
+. "${READ_ARGS_LIB_PATH}/read_args_rbk.sh"
 
 
 difbk_sub_cmd="${DIFBK_SUB_CMD}"
@@ -18,6 +19,7 @@ read_args(){
 	case "${difbk_sub_cmd}" in
 		"${DIFBK_BK_CMD_VALIABLE}")
 			D_OPTION=""
+			J_OPTION=""
 			LN_OPTION=""
 			DN_OPTION=""
 			FULL_OPTION=""
@@ -25,7 +27,12 @@ read_args(){
 			MKLABEL_CON=""
 			RMLABEL_CON=""
 			DRY_BK_OPTION=""
+			RS_BK_OPTION=""
 			read_args_bk "$@"
+		;;
+		"${DIFBK_RBK_CMD_VALIABLE}")
+			J_OPTION=""
+			read_args_rbk "$@"
 		;;
 		"${DIFBK_RS_CMD_VALIABLE}")
 			B_OPTION=""

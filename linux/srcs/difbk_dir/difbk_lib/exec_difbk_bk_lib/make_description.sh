@@ -13,6 +13,10 @@ make_description(){
 		"");;
 		*) return
 	esac
+	case "${RS_BK_OPTION}" in
+		"");;
+		*) return
+	esac
 	case "${DN_OPTION}" in 
 		"") ;;
 		*) 	echo ""

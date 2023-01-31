@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-COPY_AND_UNZIP_LIB_PATH="${EXEC_DFBK_RS_LIB_PATH}/copy_and_unzip_lib"
+COPY_AND_UNZIP_LIB_PATH="${DIFBK_COMMON_LIB_PATH}/copy_and_unzip_lib"
 
 . "${COPY_AND_UNZIP_LIB_PATH}/make_mkdir_shell_path.sh"
 . "${COPY_AND_UNZIP_LIB_PATH}/exec_copy_and_unzip.sh"

@@ -14,6 +14,7 @@ readonly DIFBK_COMMON_LIB_PATH="${DIFBK_LIB_DIR_PATH}/common_lib"
 . "${DIFBK_COMMON_LIB_PATH}/desk_cat_func.sh"
 . "${DIFBK_COMMON_LIB_PATH}/echo_desk_rga_v_cmd.sh"
 . "${DIFBK_COMMON_LIB_PATH}/wait_spin.sh"
+. "${DIFBK_COMMON_LIB_PATH}/copy_and_unzip.sh"
 readonly DIFBK_SCH_LIB_DIR_PATH="${DIFBK_DIR_PATH}/difbk_sch_func"
 readonly DIFBK_ROOT_LIB_PATH="${DIFBK_LIB_DIR_PATH}/root_lib"
 . "${DIFBK_ROOT_LIB_PATH}/read_args.sh"
@@ -31,6 +32,7 @@ readonly DIFBK_RESET_CMD_VALIABLE="reset"
 readonly DIFBK_ST_CMD_VALIABLE="st"
 readonly DIFBK_LRS_CMD_VALIABLE="lrs"
 readonly DIFBK_RS_CMD_VALIABLE="rs"
+readonly DIFBK_RBK_CMD_VALIABLE="rbk"
 readonly DIFBK_CLEAN_CMD_VALIABLE="clean"
 readonly DIFBK_MRG_CMD_VALIABLE="mrg"
 readonly DIFBK_HELP_CMD_VALIABLE="help"
@@ -54,6 +56,7 @@ readonly LATEST_MERGE_LIST_VALIDATE_ARGS_NAME="-vl"
 readonly ALT_ARGS_NAME="-alt"
 readonly DEST_ARGS_NAME="-dest"
 readonly DRY_BK_ARGS_NAME="-dry-bk"
+readonly RS_BK_ARGS_NAME="-rs-bk"
 readonly CUR_DIFF_ARGS_NAME="-cur-diff"
 readonly OLD_PREFIX="old"
 SHIFT_SEED=0
@@ -73,6 +76,7 @@ LN_OPTION=""
 J_OPTION=""
 FULL_OPTION=""
 DRY_BK_OPTION=""
+RS_BK_OPTION=""
 CUR_DIFF_OPTION=""
 DIFBK_ARGUMENT=""
 DIFBK_ARGUMENT_LIST=""
@@ -130,23 +134,25 @@ case "${DIFB_SUBCMD_INCLUDE_EJECT}" in
 
 case "${DIFBK_SUB_CMD}" in
 "${DIFBK_BK_CMD_VALIABLE}") 
-	. ${DIFBK_DIR_PATH}/exec_dfbk_bk.sh ;;
+	. "${DIFBK_DIR_PATH}/exec_dfbk_bk.sh" ;;
+"${DIFBK_RBK_CMD_VALIABLE}")
+	. "${DIFBK_DIR_PATH}/exec_dfbk_rbk.sh" ;;
 "${DIFBK_ST_CMD_VALIABLE}") 
-	. ${DIFBK_DIR_PATH}/exec_dfbk_st.sh ;;
+	. "${DIFBK_DIR_PATH}/exec_dfbk_st.sh" ;;
 "${DIFBK_RS_CMD_VALIABLE}") 
-	. ${DIFBK_DIR_PATH}/exec_dfbk_rs.sh ;;
+	. "${DIFBK_DIR_PATH}/exec_dfbk_rs.sh" ;;
 "${DIFBK_CLEAN_CMD_VALIABLE}") 
-	LANG="ja_JP.UTF-8" . ${DIFBK_DIR_PATH}/exec_dfbk_clean.sh ;;
+	LANG="ja_JP.UTF-8" . "${DIFBK_DIR_PATH}/exec_dfbk_clean.sh" ;;
 "${DIFBK_DIFF_CMD_VALIABLE}") 
-	. ${DIFBK_DIR_PATH}/exec_dfbk_diff.sh ;;
+	. "${DIFBK_DIR_PATH}/exec_dfbk_diff.sh" ;;
 "${DIFBK_SCH_CMD_VALIABLE}") 
-	. ${DIFBK_DIR_PATH}/exec_dfbk_sch.sh ;;
+	. "${DIFBK_DIR_PATH}/exec_dfbk_sch.sh" ;;
 "${DIFBK_LRS_CMD_VALIABLE}") 
-	. ${DIFBK_DIR_PATH}/exec_dfbk_lrs.sh ;;
+	. "${DIFBK_DIR_PATH}/exec_dfbk_lrs.sh" ;;
 "${DIFBK_HELP_CMD_VALIABLE}") 
-	LANG="ja_JP.UTF-8" . ${DIFBK_DIR_PATH}/exec_dfbk_help.sh ;;
+	LANG="ja_JP.UTF-8" . "${DIFBK_DIR_PATH}/exec_dfbk_help.sh" ;;
 "${DIFBK_MRG_CMD_VALIABLE}") 
-	. ${DIFBK_DIR_PATH}/exec_dfbk_mrg.sh ;;
+	. "${DIFBK_DIR_PATH}/exec_dfbk_mrg.sh" ;;
 "${DIFBK_RESET_CMD_VALIABLE}")
-	. ${DIFBK_DIR_PATH}/exec_dfbk_reset.sh ;;
+	. "${DIFBK_DIR_PATH}/exec_dfbk_reset.sh" ;;
 esac
