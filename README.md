@@ -236,6 +236,14 @@ difbk rs {backup one file path}
     | `-c`  | no | not `merge` but `copy` |
 
 
+#### Restore buckup to current project directory
+
+1. type bellow command
+
+```
+difbk rbk [merge list order num (number in left brackets when type difkb lrs -e )]
+```
+
 ### Clean
 
 #### Validate backup list file
