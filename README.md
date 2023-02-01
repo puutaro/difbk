@@ -241,7 +241,7 @@ difbk rs {backup one file path}
 1. type bellow command
 
 ```
-difbk rbk [merge list order num (number in left brackets when type difkb lrs -e )]
+difbk rbk [merge list path or order num (number in left brackets when type difkb lrs -e )]
 ```
 
 ### Clean

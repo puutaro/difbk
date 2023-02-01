@@ -45,6 +45,14 @@ merge_list_file_path=$(\
 	echo_merge_list_file_path \
 		"${J_OPTION}"
 )
+
+case "${merge_list_file_path}" in
+	"") 
+		echo "merge list path or number invalid"
+		exit 0
+		;;
+esac
+
 LS_BUCKUP_MERGE_CONTENTS=""
 get_buckup_con_from_recent_merge_con \
 	"${merge_list_file_path}"

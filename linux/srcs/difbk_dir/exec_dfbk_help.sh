@@ -18,7 +18,7 @@ display_help(){
 	echo ---
 	echo "####  rbk (restore buckup to current project directory)"
 	echo "feature: restore backup"
-	echo "cmd:  difbk rbk [merge list order num (number in left brackets when type difkb lrs -e )]"
+	echo "cmd:  difbk rbk [merge list path or order num (number in left brackets when type difkb lrs -e )]"
 
 	echo ---
 	echo "####  reset"
