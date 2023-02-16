@@ -97,7 +97,7 @@ It mean confirm status
 1. type bellow command
 
 ```
-difbk st
+difbk st (target mergelist number (reffrer lrs merge list num or target file)|merge list path)
 ```
 
 ![image](https://user-images.githubusercontent.com/55217593/203556258-fa2c36bf-6679-43d5-8d12-046ac8e24efe.png)
