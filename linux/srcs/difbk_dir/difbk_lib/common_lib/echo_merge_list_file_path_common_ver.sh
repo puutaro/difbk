@@ -1,11 +1,11 @@
 #!/bin/bash
 
 
-echo_merge_list_file_path(){
+echo_merge_list_file_path_common_ver(){
 	local j_option="${1}"
 	case "${j_option}" in 
 		"") j_option=1 
-			echo_buckup_merge_list_for_bk_or_rbk \
+			echo_buckup_merge_list_by_common_ver \
 				"${j_option}"
 			return
 		;;
@@ -19,20 +19,20 @@ echo_merge_list_file_path(){
 	local err_status=$?
 	case "${err_status}" in 
 		"0") 
-			echo_buckup_merge_list_for_bk_or_rbk \
+			echo_buckup_merge_list_by_common_ver \
 				"${j_option}"
 			return
 				;;
 	esac
 
-	echo_by_validation_merge_list_path_for_rbk \
+	echo_by_validation_merge_list_path_by_common_ver \
 		"${j_option}"
 
 
 }
 
 
-echo_buckup_merge_list_for_bk_or_rbk(){
+echo_buckup_merge_list_by_common_ver(){
 	local j_option="${1}"
 	if [ -e "${BUCK_UP_DIR_PATH}" ];then
 		fd . "${BUCK_UP_DIR_PATH}" -d 6 \
@@ -46,7 +46,7 @@ echo_buckup_merge_list_for_bk_or_rbk(){
 }
 
 
-echo_by_validation_merge_list_path_for_rbk(){
+echo_by_validation_merge_list_path_by_common_ver(){
 	local merge_list_path_entry="${1}"
 	if [ ! -f "${merge_list_path_entry}" ]; then
 		exit 0

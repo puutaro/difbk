@@ -13,7 +13,6 @@ readonly JANRE_MERGE_LIST_PATH=2
 EXEC_DIFBK_DIFF_LIB_PATH="${DIFBK_LIB_DIR_PATH}/exec_difbk_diff_lib"
 . "${EXEC_DIFBK_DIFF_LIB_PATH}/echo_second_para_janre.sh"
 . "${EXEC_DIFBK_DIFF_LIB_PATH}/echo_second_para.sh"
-. "${EXEC_DIFBK_DIFF_LIB_PATH}/echo_recent_merge_list_path.sh"
 . "${EXEC_DIFBK_DIFF_LIB_PATH}/end_when_recent_merge_list_path.sh"
 . "${EXEC_DIFBK_DIFF_LIB_PATH}/echo_desk_rga_cmd_for_diff.sh"
 . "${EXEC_DIFBK_DIFF_LIB_PATH}/echo_desk_rga_v_cmd_for_diff.sh"
@@ -36,10 +35,11 @@ second_para_janre=$(\
 		"${second_para}" \
 )
 
-
 recent_merge_list_path=$(\
-	echo_recent_merge_list_path \
+	echo_merge_list_file_path_common_ver \
+		"${RJ_OPTION}"
 )
+
 
 end_when_recent_merge_list_path \
 	"${recent_merge_list_path}"
@@ -84,18 +84,21 @@ if [ ! -e "${recent_merge_list_path}" ];then
 	exit 0
 fi
 if [ ! -e "${before_merge_list_path}" ] \
-	&& [ "${second_para}" != "${CURRENT_TARGET_DIR_ORDER}" ];then 
+	&& [ -z "${RJ_OPTION}" ];then 
 	echo "no before_merge_list_path: ${before_merge_list_path}"
 	exit 0
 fi
 
 
-case "${second_para}" in
-	"${CURRENT_TARGET_DIR_ORDER}")
+case "${RJ_OPTION}" in
+	"") 
+		;;
+	*)
 		CUR_DIFF_OPTION="${CUR_DIFF_ARGS_NAME}"
 		DRY_BK_OPTION="${DRY_BK_ARGS_NAME}"
 		. ${DIFBK_DIR_PATH}/exec_dfbk_bk.sh 
-;;esac
+		;;
+esac
 
 
 sed_before_diff_label=""

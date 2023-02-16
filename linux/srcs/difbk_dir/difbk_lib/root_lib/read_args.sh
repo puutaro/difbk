@@ -12,6 +12,7 @@ READ_ARGS_LIB_PATH="${DIFBK_ROOT_LIB_PATH}/read_args_lib"
 . "${READ_ARGS_LIB_PATH}/read_args_reset.sh"
 . "${READ_ARGS_LIB_PATH}/read_args_rbk.sh"
 . "${READ_ARGS_LIB_PATH}/read_args_st.sh"
+. "${READ_ARGS_LIB_PATH}/read_args_sd.sh"
 
 
 difbk_sub_cmd="${DIFBK_SUB_CMD}"
@@ -77,6 +78,10 @@ read_args(){
 			DA_OPTION_ENTRY=""
 			DB_OPTION_ENTRY=""
 			read_args_diff "$@"
+			;;
+		"${DIFBK_SDIFF_CMD_VALIABLE}")
+			RJ_OPTION=""
+			read_args_sd "$@"
 			;;
 		"${DIFBK_CLEAN_CMD_VALIABLE}")
 			LAST_LEFT_ORDER_FOR_MERGE_LIST=""

@@ -11,11 +11,9 @@ make_diff_file_pair_and_label_and_target_merge_list(){
 	local second_para="${1}"
 	local recent_merge_list_path="${2}"
 	local before_merge_list_path="${3}"
-	echo "make_diff_file_pair_and_label_and_target_merge_list:second_para ${second_para}"
-	case "${second_para}" in
-		"${CURRENT_TARGET_DIR_ORDER}")
-			;;
-		*)
+
+	case "${RJ_OPTION}" in
+		"")
 			sed_before_diff_label=""
 			diff_file_pair_con=""
 			echo_diff_file_pair_con \
@@ -28,6 +26,8 @@ make_diff_file_pair_and_label_and_target_merge_list(){
 				| sed 's/\.\./'${SED_TARGET_PAR_DIR_PATH}'/'\
 			)"
 			return
+			;;
+		*)
 			;;
 	esac
 

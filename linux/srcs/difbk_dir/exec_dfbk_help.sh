@@ -31,6 +31,11 @@ display_help(){
 	echo -e "cmd:  difbk st (target mergelist number (reffrer lrs merge list num or target file)|merge list path) \n"
 
 	echo ---
+	echo "####  sd (diff)"
+	echo "feature: merge list diff from current directory"
+	echo -e "cmd:  difbk sd (target mergelist number (reffrer lrs merge list num or target file)|merge list path) \n"
+
+	echo ---
 	echo "####  lrs "
 	echo "feature: ls merge_list"
 	echo "cmd:  difbk lrs ([-e: every one] [-d {word}: desc search for {word}(And search with multiple specifications )] "
@@ -54,7 +59,7 @@ display_help(){
 
 	echo ---
 	echo "####  diff "
-	echo "feature: merge date diff from recnt and num date"
+	echo "feature: merge date diff from recent and num date"
 	echo "cmd:  difbk diff ([blank(current dir diff) | target mergelist number (reffrer lrs merge list num or target file)|merge list path|diff target file path] ([-d(|e|v) desc search])"
 	echo -e "\t\t[-d {word}: desc search for {word}(And search with multiple specifications )]"
 	echo -e "\t\t[-dv {word}: desc exclude search (And search with multiple specifications )"

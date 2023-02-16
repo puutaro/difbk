@@ -15,6 +15,7 @@ readonly DIFBK_COMMON_LIB_PATH="${DIFBK_LIB_DIR_PATH}/common_lib"
 . "${DIFBK_COMMON_LIB_PATH}/echo_desk_rga_v_cmd.sh"
 . "${DIFBK_COMMON_LIB_PATH}/wait_spin.sh"
 . "${DIFBK_COMMON_LIB_PATH}/copy_and_unzip.sh"
+. "${DIFBK_COMMON_LIB_PATH}/echo_merge_list_file_path_common_ver.sh"
 readonly DIFBK_SCH_LIB_DIR_PATH="${DIFBK_DIR_PATH}/difbk_sch_func"
 readonly DIFBK_ROOT_LIB_PATH="${DIFBK_LIB_DIR_PATH}/root_lib"
 . "${DIFBK_ROOT_LIB_PATH}/read_args.sh"
@@ -27,6 +28,7 @@ readonly CHECH_SUM_DIR_INFO="ddddd"
 # difinition valiable2 -------------------
 readonly DIFBK_SCH_CMD_VALIABLE="sch"
 readonly DIFBK_DIFF_CMD_VALIABLE="diff"
+readonly DIFBK_SDIFF_CMD_VALIABLE="sd"
 readonly DIFBK_BK_CMD_VALIABLE="bk"
 readonly DIFBK_RESET_CMD_VALIABLE="reset"
 readonly DIFBK_ST_CMD_VALIABLE="st"
@@ -74,6 +76,7 @@ V_OPTION=""
 O_OPTION=""
 LN_OPTION=""
 J_OPTION=""
+RJ_OPTION=""
 FULL_OPTION=""
 DRY_BK_OPTION=""
 RS_BK_OPTION=""
@@ -144,6 +147,8 @@ case "${DIFBK_SUB_CMD}" in
 	LANG="ja_JP.UTF-8" . "${DIFBK_DIR_PATH}/exec_dfbk_clean.sh" ;;
 "${DIFBK_DIFF_CMD_VALIABLE}") 
 	. "${DIFBK_DIR_PATH}/exec_dfbk_diff.sh" ;;
+"${DIFBK_SDIFF_CMD_VALIABLE}") 
+	. "${DIFBK_DIR_PATH}/exec_dfbk_sd.sh" ;;
 "${DIFBK_SCH_CMD_VALIABLE}") 
 	. "${DIFBK_DIR_PATH}/exec_dfbk_sch.sh" ;;
 "${DIFBK_LRS_CMD_VALIABLE}") 

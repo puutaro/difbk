@@ -5,8 +5,9 @@
 echo_before_merge_list_path_for_diff(){
 	local second_para="${1}"
 	local second_para_janre="${2}"
-	case "${second_para}" in
-		"${CURRENT_TARGET_DIR_ORDER}")
+	case "${RJ_OPTION}" in
+		"") ;;
+		*)
 			return
 	;; esac
 	case "${second_para_janre}" in

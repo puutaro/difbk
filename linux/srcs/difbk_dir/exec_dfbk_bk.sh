@@ -29,7 +29,6 @@ DIFBK_BK_LIB_DIR_PATH="${DIFBK_LIB_DIR_PATH}/exec_difbk_bk_lib"
 . "${DIFBK_BK_LIB_DIR_PATH}/insert_row_path_from_contents.sh"
 . "${DIFBK_BK_LIB_DIR_PATH}/display_bk_result.sh"
 . "${DIFBK_BK_LIB_DIR_PATH}/exec_no_buck_up_exit.sh"
-. "${DIFBK_BK_LIB_DIR_PATH}/echo_merge_list_file_path.sh"
 . "${DIFBK_BK_LIB_DIR_PATH}/exec_bk_and_rbk_handler.sh"
 
 
@@ -42,7 +41,7 @@ checksum_calc_and_write_out_to_file &
 checksum_calc_and_write_out_to_file_pid=$! 
 
 merge_list_file_path=$(\
-	echo_merge_list_file_path \
+	echo_merge_list_file_path_common_ver \
 		"${J_OPTION}"
 )
 
