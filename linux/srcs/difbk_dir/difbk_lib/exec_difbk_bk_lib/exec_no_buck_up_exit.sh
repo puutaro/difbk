@@ -14,6 +14,10 @@ exec_no_buck_up_exit(){
 		"") ;;
 		*) return ;;
 	esac
+	case "${RJ_OPTION}" in
+		"") ;;
+		*) return ;;
+	esac
 	case "${LS_CREATE_BUCKUP_MERGE_CONTENTS}" in 
 		"")
 			echo "no buckup(create) target file"

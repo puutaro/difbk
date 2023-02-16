@@ -10,6 +10,7 @@ case "${RJ_OPTION}" in
 			exit 0
 			;;
 esac
+J_OPTION="${RJ_OPTION}"
+
 E_OPTION="-e"
-echo RJ_OPTION ${RJ_OPTION}
 . "${DIFBK_DIR_PATH}/exec_dfbk_diff.sh"
