@@ -31,14 +31,14 @@ display_help(){
 	echo -e "cmd:  difbk st (target mergelist number (reffrer lrs merge list num or target file)|merge list path) \n"
 
 	echo ---
-	echo "####  sd (diff)"
+	echo "####  sd (status diff)"
 	echo "feature: merge list diff from current directory"
 	echo -e "cmd:  difbk sd (target mergelist number (reffrer lrs merge list num or target file)|merge list path) \n"
 
 	echo ---
 	echo "####  lrs "
 	echo "feature: ls merge_list"
-	echo "cmd:  difbk lrs ([-e: every one] [-d {word}: desc search for {word}(And search with multiple specifications )] "
+	echo "cmd:  difbk lrs ([-e: every one] [-d {word}: desc search for {word}(And search with multiple specifications )] [-full: full merge list display]"
 	echo -e "\t\t[-d {word}: desc search for {word}(And search with multiple specifications )]"
 	echo -e "\t\t[-dv {word}: desc exclude search (And search with multiple specifications )"
 	echo -e "\t\t[-de {word}: desc or search (Or search with multiple specifications, cannot be combined with normal desc search)"

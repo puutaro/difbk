@@ -6,7 +6,6 @@ exec_dfbk_lrs_lib_path="${DIFBK_LIB_DIR_PATH}/exec_dfbk_lrs_lib"
 . "${exec_dfbk_lrs_lib_path}/display_merge_list_by_every.sh"
 unset -v exec_dfbk_lrs_lib_path
 
-
 rga_after_num=1
 
 dRGA_OPTION=$(\

@@ -12,6 +12,9 @@ read_args_lrs(){
 		-d)
 			D_OPTION+="${DESC_PREFIX}.*${2}"
 			shift;;
+		"${FULL_OPTION_NAME}")
+			FULL_OPTION="${FULL_OPTION_NAME}"
+			;;
 		-da)
 			DA_OPTION_ENTRY="${2}"
 			shift;;

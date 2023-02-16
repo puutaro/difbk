@@ -55,6 +55,7 @@ read_args(){
 			DIFBK_ARGUMENT=""
 			DA_OPTION_ENTRY=""
 			DB_OPTION_ENTRY=""
+			FULL_OPTION=""
 			read_args_lrs "$@"
 			;;
 		"${DIFBK_SCH_CMD_VALIABLE}")

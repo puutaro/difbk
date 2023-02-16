@@ -120,7 +120,7 @@ difbk reset
     | `-s` | no | without comfirm, remove it |
 
 ### List backup files
-`difbk` management backup generation by backup files's text file(in fact commpressed into gz). Here list backup's list text files. this subcommand is base command in `difbk`. This is used for `sch`, `rs` and `diff`, etc.
+`difbk` management backup generation by backup files's text file(in fact commpressed into gz). Here list backup's list text files. this subcommand is base command in `difbk`. This is used for `sch`, `rs` and `diff`, etc. When add no `-full`  option, display recent 30 merge file path  
 
 1. type bellow command
 
@@ -138,6 +138,7 @@ difbk lrs -e
     | `-d`  | string | description's `include` filter string |
     | `-de`  | string | description's `or` filter string |
     | `-dv` | string | description's `exclude` filter label  |
+    | `-full` | no | full merge list display |
 
 ### Search
 
