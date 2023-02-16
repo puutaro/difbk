@@ -15,7 +15,7 @@ exec_no_buck_up_exit(){
 		*) return ;;
 	esac
 	local latest_merge_list_num=1
-	case "${RJ_OPTION}" in
+	case "${J_OPTION}" in
 		""|"${latest_merge_list_num}") ;;
 		*) return ;;
 	esac

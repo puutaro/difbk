@@ -15,7 +15,7 @@ read_args_sd(){
 		${DIFBK_SDIFF_CMD_VALIABLE})
 			;;
 		*)	
-			RJ_OPTION="${1:-}"
+			J_OPTION="${1:-}"
 			;;
 	esac
 	shift

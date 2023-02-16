@@ -81,7 +81,7 @@ read_args(){
 			read_args_diff "$@"
 			;;
 		"${DIFBK_SDIFF_CMD_VALIABLE}")
-			RJ_OPTION=""
+			J_OPTION=""
 			read_args_sd "$@"
 			;;
 		"${DIFBK_CLEAN_CMD_VALIABLE}")

@@ -5,7 +5,7 @@
 echo_before_merge_list_path_for_diff(){
 	local second_para="${1}"
 	local second_para_janre="${2}"
-	case "${RJ_OPTION}" in
+	case "${J_OPTION}" in
 		"") ;;
 		*)
 			return

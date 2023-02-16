@@ -11,7 +11,7 @@ unset -v differ_handler_when_no_relate_merge_list_lib_path
 differ_handler_when_no_relate_merge_list(){
 	local second_para="${1}"
 	local second_para_janre="${2}"
-	case "${RJ_OPTION}" in
+	case "${J_OPTION}" in
 		"") ;;
 		*) return ;;
 	esac

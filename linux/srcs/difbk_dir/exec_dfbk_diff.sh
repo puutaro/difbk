@@ -37,7 +37,7 @@ second_para_janre=$(\
 
 recent_merge_list_path=$(\
 	echo_merge_list_file_path_common_ver \
-		"${RJ_OPTION}"
+		"${J_OPTION}"
 )
 
 
@@ -84,13 +84,13 @@ if [ ! -e "${recent_merge_list_path}" ];then
 	exit 0
 fi
 if [ ! -e "${before_merge_list_path}" ] \
-	&& [ -z "${RJ_OPTION}" ];then 
+	&& [ -z "${J_OPTION}" ];then 
 	echo "no before_merge_list_path: ${before_merge_list_path}"
 	exit 0
 fi
 
 
-case "${RJ_OPTION}" in
+case "${J_OPTION}" in
 	"") 
 		;;
 	*)

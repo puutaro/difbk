@@ -12,7 +12,7 @@ make_diff_file_pair_and_label_and_target_merge_list(){
 	local recent_merge_list_path="${2}"
 	local before_merge_list_path="${3}"
 
-	case "${RJ_OPTION}" in
+	case "${J_OPTION}" in
 		"")
 			sed_before_diff_label=""
 			diff_file_pair_con=""
