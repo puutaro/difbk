@@ -28,7 +28,7 @@ display_help(){
 	echo ---
 	echo "####  st (status)"
 	echo "feature: change files"
-	echo -e "cmd:  difbk st\n"
+	echo -e "cmd:  difbk st (target mergelist number (reffrer lrs merge list num or target file)|merge list path) \n"
 
 	echo ---
 	echo "####  lrs "

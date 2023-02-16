@@ -48,7 +48,7 @@ merge_list_file_path=$(\
 
 case "${merge_list_file_path}" in
 	"") 
-		echo "merge list path or number invalid"
+		echo "you must be merge list path or number or buckup"
 		exit 0
 		;;
 esac

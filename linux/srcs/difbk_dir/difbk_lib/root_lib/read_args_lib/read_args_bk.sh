@@ -7,7 +7,7 @@ read_args_bk(){
 	do
 	case "${1}" in
 		-b)
-			echo "bk option is invalid in bk"
+			echo "b option is invalid in bk"
 			exit 0
 			;;
 		"${DRY_BK_ARGS_NAME}")
