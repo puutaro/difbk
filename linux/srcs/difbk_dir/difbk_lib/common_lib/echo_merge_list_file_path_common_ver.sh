@@ -34,8 +34,9 @@ echo_merge_list_file_path_common_ver(){
 
 echo_buckup_merge_list_by_common_ver(){
 	local j_option="${1}"
+	local merge_list_depth=6
 	if [ -e "${BUCK_UP_DIR_PATH}" ];then
-		fd . "${BUCK_UP_DIR_PATH}" -d 6 \
+		fd . "${BUCK_UP_DIR_PATH}" -d "${merge_list_depth}" \
 			| rga "/${BUCK_UP_DIR_NAME}/[0-9]{4}/[0-9]{2}/[0-9]{2}/[0-9]{4}/${BUCKUP_MERGE_CONTENSTS_LIST_DIR_NAME}/${BUCKUP_MERGE_CONTENSTS_LIST_FILE_NAME}" \
 			| sort -r \
 			| sed -n "${j_option}p" \

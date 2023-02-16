@@ -2,9 +2,10 @@
 
 
 echo_registered_merge_file_paths_con(){
+	local merge_list_depth=6
 	fd . \
 		"${BUCK_UP_DIR_PATH}" \
-		-d 6 -t f \
+		-d "${merge_list_depth}" -t f \
 	| rga "/${BUCK_UP_DIR_NAME}/[0-9]{4}/[0-9]{2}/[0-9]{2}/[0-9]{4}/${BUCKUP_MERGE_CONTENSTS_LIST_DIR_NAME}/${BUCKUP_MERGE_CONTENSTS_LIST_FILE_NAME}" \
 	| sort \
 	| sed \
