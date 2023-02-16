@@ -30,6 +30,7 @@ Table of Contents
   * [Search](#search)
   	* [Path search](#path-search)
   	* [contents search](#contents-search)
+  * [Status diff](#status-diff)
   * [Diff](#diff)
   * [Restore](#restore)
 	* [All buckup files restore](#all-buckup-files-restore)
@@ -186,6 +187,16 @@ difbk sch -c {search path word}
     | `-db` | datetime string (YYYY/MM/DD/hhmm) | delete before datetme |
     | `-j` | int | every generation number (when `difbk lrs -e`, display in left brackets) |
 
+
+### Status diff
+
+1. type bellow command
+
+```
+difbk diff (target mergelist number (reffrer lrs merge list num or target file)|merge list path)
+```
+
+
 ### Diff
 
 1. type bellow command
@@ -205,6 +216,9 @@ difbk diff { blank (current direcotry diff) | generation number or backup list f
     | `-dv` | string | description's `exclude` filter label  |
     | `-da` | datetime string (YYYY/MM/DD/hhmm) | delete after datetme |
     | `-db` | datetime string (YYYY/MM/DD/hhmm) | delete before datetme |
+
+
+
 
 ### Restore
 
