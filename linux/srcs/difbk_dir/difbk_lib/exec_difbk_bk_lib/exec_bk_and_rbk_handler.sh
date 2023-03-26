@@ -84,7 +84,6 @@ wrapper_exec_copy_and_unzip(){
 			| rga -v "${CHECH_SUM_DIR_INFO}" \
 			| sed -r 's/(.*)\t(.*)\t(.*)/\1\t\2\3/'\
 	)
-	echo "${LS_BUCKUP_MERGE_CONTENTS}"
 	LS_DELETE_BUCKUP_MERGE_CONTENTS="${LS_BUCKUP_MERGE_CONTENTS}"
 	case "${LS_BUCKUP_MERGE_CONTENTS}" in
 		"") return ;; 

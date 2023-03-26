@@ -18,6 +18,19 @@ copy_and_unzip(){
 	case "${LS_BUCKUP_MERGE_CONTENTS}" in
 		"") return ;; 
 	esac
+	echo --
+	LS_BUCKUP_MERGE_CONTENTS=$(\
+		cat \
+			<(echo "${LS_BUCKUP_MERGE_CONTENTS}")\
+			<(\
+				echo "${LS_BUCKUP_MERGE_CONTENTS}" \
+				| sed -r \
+					-e 's/\/[^/]*$//' \
+					-e 's/(.*)\t(.*)/'${CHECH_SUM_DIR_INFO}'\t\2/' \
+				| sort -k 2,2 \
+				| uniq -f 1 \
+			)\
+	)
 	make_mkdir_shell_path \
 		"${sed_restore_target_dir_path}" \
 		"${mkdir_shell_path}" \
