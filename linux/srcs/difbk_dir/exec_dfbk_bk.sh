@@ -45,12 +45,11 @@ merge_list_file_path=$(\
 		"${J_OPTION}"
 )
 
-case "${merge_list_file_path}" in
-	"") 
-		echo "you must be merge list path or number or buckup"
-		exit 0
-		;;
-esac
+if [ -z "${merge_list_file_path}" ] \
+		&& [ -z "${ON_ONLY_BUCKUP}" ]; then
+	echo "you must be merge list path or number or buckup"
+	exit 0
+fi
 
 LS_BUCKUP_MERGE_CONTENTS=""
 get_buckup_con_from_recent_merge_con \
