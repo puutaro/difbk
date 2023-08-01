@@ -86,8 +86,8 @@ difbk bk -d "{backup description}"
     | `-d` | string | backup'e description  |
     | `-dn`  | no | no set backup'e description |
     | `-mklabel`  | string | label stamp attached to the beginning of the description (ex label -> [label] ~ ) |
-    | `rmlabel` | string | remove registerd label  |
-    | `lslabel` | no | list registerd labels  |
+    | `-rmlabel` | string | remove registerd label  |
+    | `-lslabel` | no | list registerd labels  |
     | `-ln`  | no | when backup, not add label stamp |
 
 
