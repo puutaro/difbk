@@ -12,6 +12,8 @@ sudo apt install ripgrep pandoc poppler-utils ffmpeg -y
 wget -O - 'https://github.com/phiresky/ripgrep-all/releases/download/v0.9.6/ripgrep_all-v0.9.6-x86_64-unknown-linux-musl.tar.gz' | tar zxvf - && sudo mv ripgrep_all-v0.9.6-x86_64-unknown-linux-musl/rga* /usr/local/bin
 # colordiff rcs(merge) install 
 sudo apt-get install -y colordiff rcs
+# fzf install
+sudo apt-get install -y fzf
 
 # difbk install
 echo "sudo cp -arvf \"${DIFBK_INSTALL_SOURCE_DIR}\"/* \"${DIFBK_INSTALL_TARGET_DIR}\"/"
