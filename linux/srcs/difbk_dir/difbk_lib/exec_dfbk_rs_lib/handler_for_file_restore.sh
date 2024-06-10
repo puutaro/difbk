@@ -36,6 +36,9 @@ handler_for_file_restore(){
 			"${restore_target_file_path}"
 		;;
 	-c) 
+		local parrent_dir_path="$(dirname "${restore_target_file_path}")"
+		mkdir -p "${parrent_dir_path}"
+		unset -v parrent_dir_path
 		cp -avf "${path_by_deflosting_restore_target_file}" "${restore_target_file_path}"
 		wait;
 		;;
