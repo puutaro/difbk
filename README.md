@@ -1,9 +1,9 @@
 
 # `difbk`
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)]((https://opensource.org/licenses/MIT))  
 Command line differential backup tool made by 100% shell script.
 
-![image](https://user-images.githubusercontent.com/55217593/201099244-36ea4227-ef06-4290-9a65-edf3ee025874.png)
-
+![image](https://user-images.githubusercontent.com/55217593/201099244-36ea4227-ef06-4290-9a65-edf3ee025874.png)  
 It's a differential backup tool, which have ritch feature: backup, fullbackup, search, grep, diff, restore, clean up.
 
 Pros
