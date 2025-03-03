@@ -13,10 +13,17 @@ wget -O - 'https://github.com/phiresky/ripgrep-all/releases/download/v0.9.6/ripg
 # colordiff rcs(merge) install 
 sudo apt-get install -y colordiff rcs
 # fzf install
-readonly fzf_download_dir_path="${SOURCE_DIR_PATH}/.fzf"
+readonly usr_name=$(\
+	echo "${SOURCE_DIR_PATH}" \
+	| awk '{
+		split($0, path_array, "/")
+		print path_array[3]
+	}'\
+)
+readonly usr_dir_path="/home/${usr_name}"
+readonly fzf_download_dir_path="${usr_dir_path}/.fzf"
 git clone https://github.com/junegunn/fzf.git "${fzf_download_dir_path}" \
 	&& yes | "${fzf_download_dir_path}/install"
-rm -rf "${fzf_download_dir_path}"
 
 # difbk install
 echo "sudo cp -arvf \"${DIFBK_INSTALL_SOURCE_DIR}\"/* \"${DIFBK_INSTALL_TARGET_DIR}\"/"
