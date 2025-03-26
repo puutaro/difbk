@@ -23,7 +23,12 @@ readonly usr_name=$(\
 readonly usr_dir_path="/home/${usr_name}"
 readonly fzf_download_dir_path="${usr_dir_path}/.fzf"
 git clone https://github.com/junegunn/fzf.git "${fzf_download_dir_path}" \
-	&& yes | "${fzf_download_dir_path}/install"
+	&& sudo chown ${usr_name}:${usr_name} -R "${fzf_download_dir_path}" \
+	&& sudo chmod 777 -R "${fzf_download_dir_path}"
+bk_home="${HOME}"
+export HOME="${usr_dir_path}"
+yes | "${usr_dir_path}/.fzf/install"
+export HOME="${bk_home}"
 
 # difbk install
 echo "sudo cp -arvf \"${DIFBK_INSTALL_SOURCE_DIR}\"/* \"${DIFBK_INSTALL_TARGET_DIR}\"/"
