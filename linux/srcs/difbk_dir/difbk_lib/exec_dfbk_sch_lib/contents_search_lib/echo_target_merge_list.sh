@@ -7,7 +7,7 @@ echo_target_merge_list(){
     "${J_OPTION_WHEN_NO_MERGE_LIST_PATH}")
       	fd -IH -t d . ${BUCK_UP_DIR_PATH} \
       		--max-depth 5 \
-          | rga "${BUCK_UP_DIR_PATH}/[0-9]{4}/[0-9]{2}/[0-9]{2}/[0-9]{4}/${BACKUP_CREATE_DIR_NAME}$" \
+          | rga "${BUCK_UP_DIR_PATH}/[0-9]{4}/[0-9]{2}/[0-9]{2}/[0-9]{4}/${BACKUP_CREATE_DIR_NAME}[/]*$" \
           | sort -r\
     	;;
     "${J_OPTION_WHEN_MERGE_LIST_PATH}")

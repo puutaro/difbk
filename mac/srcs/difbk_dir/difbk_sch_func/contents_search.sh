@@ -4,7 +4,7 @@ contents_search(){
   case "${j_option_janre}" in 
     "0")
       # target_merge_list: DAY_DEPTH_PATH_LIST
-      target_merge_list=$(fd -IH -t d . ${BUCK_UP_DIR_PATH} --max-depth 5 |rga "${BUCK_UP_DIR_PATH}/[0-9]{4}/[0-9]{2}/[0-9]{2}/[0-9]{4}/${BACKUP_CREATE_DIR_NAME}$" | sort -r);;
+      target_merge_list=$(fd -IH -t d . ${BUCK_UP_DIR_PATH} --max-depth 5 |rga "${BUCK_UP_DIR_PATH}/[0-9]{4}/[0-9]{2}/[0-9]{2}/[0-9]{4}/${BACKUP_CREATE_DIR_NAME}[/]*$" | sort -r);;
   esac
 
   third_para_suffix="${C_OPTION:2:3}"
