@@ -6,7 +6,7 @@ reset_confirm(){
 	read -ep "ok?(y), delete_recent_datetime_bkdir ${delete_recent_datetime_bkdir} :> " \
 		confirm
 	case "${confirm}" in
-		"y") break ;;
+		"y")  ;;
 		*) exit 0 ;;
 	esac
 }
