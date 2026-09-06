@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 DIFB_SUBCMD_INCLUDE_EJECT="ON"
 BKGREP_EXEC_FILE_DIR=$(cd $(dirname $0) ; pwd)
 . ${BKGREP_EXEC_FILE_DIR}/difbk

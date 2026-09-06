@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 
 end_by_check_delete_supper_order_num_for_merge_list(){

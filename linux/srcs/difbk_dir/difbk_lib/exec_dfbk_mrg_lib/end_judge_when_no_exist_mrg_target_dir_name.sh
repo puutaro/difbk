@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 
 end_judge_when_no_exist_mrg_target_dir_name(){

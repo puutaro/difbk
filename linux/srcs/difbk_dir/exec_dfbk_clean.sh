@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 
 EXEC_DFBK_CLEAN_LIB_PATH="${DIFBK_LIB_DIR_PATH}/exec_dfbk_clean_lib"

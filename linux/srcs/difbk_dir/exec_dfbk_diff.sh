@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 readonly DFBK_EXEC_DIFF_PATH="${DFBK_SETTING_DIR_PATH}/DIFF.sh"
 

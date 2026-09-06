@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 clean_op_list=($(echo "${GENERAL_OPTION//[\,\']/}"))
 if [ -z "${clean_op_list[0]}" ];then echo "first para no (-dddd:clean, -vl: mergelist validation)" ; exit 0 ;
 elif [ "${clean_op_list[0]}" == "-dddd" ];then validation_merge_list="" ;

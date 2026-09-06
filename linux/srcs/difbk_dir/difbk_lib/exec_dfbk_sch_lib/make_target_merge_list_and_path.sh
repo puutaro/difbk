@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 
 make_target_merge_list_and_path_lib_path="${EXEC_DFBK_SCH_LIB_PATH}/make_target_merge_list_and_path_lib"

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 
 validate_recent_merge_list_lib_path="${EXEC_DFBK_CLEAN_LIB_PATH}/validate_latest_merge_list_lib"

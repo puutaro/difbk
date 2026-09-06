@@ -1,6 +1,12 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 set -eu
+if [ "$(uname -s)" = "Darwin" ];then
+  export PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
+  export PATH="/opt/homebrew/opt/gawk/libexec/gnubin:$PATH"
+  export PATH="/opt/homebrew/opt/grep/libexec/gnubin:$PATH"
+  export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
+fi
 LANG=C
 DIFBK_SUB_CMD="${1}"
 readonly EXEC_FILE_DIR=$(cd $(dirname $0) ; pwd)

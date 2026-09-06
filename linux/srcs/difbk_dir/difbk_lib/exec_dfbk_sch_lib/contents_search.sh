@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 
 CONTENTS_SEARCH_LIB_PATH="${EXEC_DFBK_SCH_LIB_PATH}/contents_search_lib"

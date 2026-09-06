@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 
 make_target_list_and_path_when_merge_list_num(){

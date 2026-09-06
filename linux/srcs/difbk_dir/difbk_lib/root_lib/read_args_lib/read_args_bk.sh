@@ -1,6 +1,8 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 
+readonly kill_proc_name=""
+readonly posts_browser=""
 read_args_bk(){
 	local STR=""
 	while (( $# > 0 ))

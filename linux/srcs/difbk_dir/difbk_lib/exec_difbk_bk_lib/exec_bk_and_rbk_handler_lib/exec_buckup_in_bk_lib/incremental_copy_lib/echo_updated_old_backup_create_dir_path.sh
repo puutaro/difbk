@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 
 echo_updated_old_backup_create_dir_path(){

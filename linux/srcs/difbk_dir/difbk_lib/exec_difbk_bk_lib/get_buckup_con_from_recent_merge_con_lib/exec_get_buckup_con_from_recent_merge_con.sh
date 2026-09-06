@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 
 exec_get_buckup_con_from_recent_merge_con(){

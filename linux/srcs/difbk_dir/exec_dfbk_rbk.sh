@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 
 RS_BK_OPTION="${RS_BK_ARGS_NAME}"

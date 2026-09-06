@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 DIFBK_LABEL_LIB_DIR_PATH="${DIFBK_BK_LIB_DIR_PATH}/label_lib"
 

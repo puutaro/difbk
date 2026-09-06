@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 
 echo_before_delete_cmd_lib_path="${ECHO_BEFORE_AND_AFTER_DELETE_CMD_LIB_PATH}/echo_before_delete_cmd_lib"

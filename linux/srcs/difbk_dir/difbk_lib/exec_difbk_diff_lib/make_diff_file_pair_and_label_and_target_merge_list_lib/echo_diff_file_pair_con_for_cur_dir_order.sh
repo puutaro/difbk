@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 
 echo_diff_file_pair_con_for_cur_dir_order(){

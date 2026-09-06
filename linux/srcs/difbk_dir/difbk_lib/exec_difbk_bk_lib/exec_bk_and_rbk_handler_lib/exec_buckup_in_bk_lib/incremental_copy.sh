@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 
 incremental_copy_lib_path="${EXEC_BUCKUP_IN_BK_LIB}/incremental_copy_lib"

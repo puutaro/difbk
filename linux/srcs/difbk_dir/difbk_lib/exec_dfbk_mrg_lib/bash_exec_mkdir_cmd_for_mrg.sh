@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 
 bash_exec_mkdir_cmd_for_mrg(){

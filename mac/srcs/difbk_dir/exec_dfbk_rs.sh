@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 IFS=$'\t'
 rs_arg_list=($(echo "${DIFBK_ARGUMENT//[,\"]/	}"))
 IFS=$' \n'

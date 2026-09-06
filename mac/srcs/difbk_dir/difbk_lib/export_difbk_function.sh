@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 lecho(){
 	case ${BUCKUP_DEBUG} in 

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 DFBK_LABEL_FILE_PATH="${1}"
 DFBL_ALL_LABEL_DELETE="CURRENTLABEL_DELETE"

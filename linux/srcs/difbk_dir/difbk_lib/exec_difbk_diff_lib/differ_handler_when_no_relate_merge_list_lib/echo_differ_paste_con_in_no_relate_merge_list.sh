@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 
 echo_differ_paste_con_in_no_relate_merge_list(){

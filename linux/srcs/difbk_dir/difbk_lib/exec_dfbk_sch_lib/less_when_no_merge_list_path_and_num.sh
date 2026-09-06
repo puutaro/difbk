@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 
 less_when_no_merge_list_path_and_num_lib_path="${EXEC_DFBK_SCH_LIB_PATH}/less_when_no_merge_list_path_and_num_lib"

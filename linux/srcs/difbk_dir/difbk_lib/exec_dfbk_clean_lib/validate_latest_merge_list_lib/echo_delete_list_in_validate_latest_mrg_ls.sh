@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 
 echo_delete_list_in_validate_latest_mrg_ls(){

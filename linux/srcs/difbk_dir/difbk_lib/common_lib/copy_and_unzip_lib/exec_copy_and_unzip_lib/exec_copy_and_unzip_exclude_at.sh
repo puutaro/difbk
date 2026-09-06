@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 
 exec_copy_and_unzip_exclude_at(){

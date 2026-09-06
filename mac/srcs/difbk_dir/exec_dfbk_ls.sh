@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 less_swich=0
 if [ -z "${2}" ];then DISPLAY_LIMIT=${DISPLAY_LIMIT_ABUSOLUTE};

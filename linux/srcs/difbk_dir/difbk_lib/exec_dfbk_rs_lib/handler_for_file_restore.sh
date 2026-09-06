@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 
 handler_for_file_restore_lib_path="${EXEC_DFBK_RS_LIB_PATH}/handler_for_file_restore_lib"

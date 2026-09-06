@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 readonly mrg_swich_on=1
 readonly mrg_swich_off=0

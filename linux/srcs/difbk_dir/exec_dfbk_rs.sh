@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 readonly DFBK_RESTORE_DIR_PATH="${DFBK_SETTING_DIR_PATH}/restore"
 file_path_with_merge_or_gip="${DIFBK_ARGUMENT_LIST[0]}"

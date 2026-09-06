@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 reverse_on=0
 # register_date_range setting
 if [ -z "${2}" ];then register_date_range=30;

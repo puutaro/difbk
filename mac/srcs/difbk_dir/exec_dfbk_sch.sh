@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 contents_search="-c"
 contents_search_on=0
 second_para="${2}"

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 trace_matrix(){
 	echo "${1}" | awk '

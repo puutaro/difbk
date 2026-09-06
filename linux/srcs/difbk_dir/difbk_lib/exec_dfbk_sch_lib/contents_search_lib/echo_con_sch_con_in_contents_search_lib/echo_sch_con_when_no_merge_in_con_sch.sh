@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 
 echo_sch_con_when_no_merge_in_con_sch(){

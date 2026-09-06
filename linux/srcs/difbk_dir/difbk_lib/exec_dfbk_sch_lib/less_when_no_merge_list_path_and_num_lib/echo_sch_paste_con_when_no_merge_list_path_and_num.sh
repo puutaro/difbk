@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 
 echo_sch_paste_con_when_no_merge_list_path_and_num(){

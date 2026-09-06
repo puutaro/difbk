@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 make_exec_clean_file_path_lib_path="${EXEC_DFBK_CLEAN_LIB_PATH}/make_exec_clean_file_path_lib"
 . "${make_exec_clean_file_path_lib_path}/echo_delete_buckup_file_type_list_con.sh"

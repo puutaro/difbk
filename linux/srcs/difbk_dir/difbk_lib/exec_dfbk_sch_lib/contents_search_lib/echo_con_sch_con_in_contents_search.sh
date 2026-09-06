@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 
 echo_con_sch_con_in_contents_search_lib_path="${CONTENTS_SEARCH_LIB_PATH}/echo_con_sch_con_in_contents_search_lib"

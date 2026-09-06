@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 contents_search(){
   case "${j_option_janre}" in 

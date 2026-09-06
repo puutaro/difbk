@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 
 exec_dfbk_reset_lib_path="${DIFBK_LIB_DIR_PATH}/exec_dfbk_reset_lib"

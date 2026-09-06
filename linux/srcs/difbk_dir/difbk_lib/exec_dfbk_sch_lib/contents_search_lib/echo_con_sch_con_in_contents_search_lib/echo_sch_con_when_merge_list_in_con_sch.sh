@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 
 echo_sch_con_when_merge_list_in_con_sch(){

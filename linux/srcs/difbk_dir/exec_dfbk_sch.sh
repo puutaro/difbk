@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 
 readonly DFBK_OUT_FD_LIST_FILE_PATH="${DFBK_SETTING_DIR_PATH}/out_fd_list.sh"

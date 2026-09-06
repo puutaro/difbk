@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 display_culc_co_matrix(){
 	lecho "tr_fuc_matrx_num: ${1}"

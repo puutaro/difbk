@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 MAKE_DIFF_FILE_PAIR_AND_LABEL_AND_TARGET_MERGE_LIST_LIB_PATH="${EXEC_DIFBK_DIFF_LIB_PATH}/make_diff_file_pair_and_label_and_target_merge_list_lib"
 . "${MAKE_DIFF_FILE_PAIR_AND_LABEL_AND_TARGET_MERGE_LIST_LIB_PATH}/echo_diff_file_pair_con.sh"

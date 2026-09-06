@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 display_help(){
 	echo ---

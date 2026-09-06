@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 
 EXEC_BUCKUP_IN_BK_LIB="${EXEC_BK_AND_RBK_HANDLER_LIB_PATH}/exec_buckup_in_bk_lib"

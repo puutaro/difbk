@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 
 get_buckup_con_from_recent_merge_con_lib_path="${DIFBK_BK_LIB_DIR_PATH}/get_buckup_con_from_recent_merge_con_lib"

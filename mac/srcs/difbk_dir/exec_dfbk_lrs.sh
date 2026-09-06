@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 less_swich=0
 rga_after_num="1"
 # echo "GENERAL_OPTION: ${GENERAL_OPTION}"

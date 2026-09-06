@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 
 end_judge_by_merge_list_path_and_restore_target_dir_path(){

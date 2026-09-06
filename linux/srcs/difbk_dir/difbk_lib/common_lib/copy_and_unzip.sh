@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 
 COPY_AND_UNZIP_LIB_PATH="${DIFBK_COMMON_LIB_PATH}/copy_and_unzip_lib"

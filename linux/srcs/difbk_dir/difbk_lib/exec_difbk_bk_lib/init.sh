@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 init(){
 	if [ ! -e "${DFBK_LABEL_DIR_PATH}" ];then

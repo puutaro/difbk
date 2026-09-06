@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 
 EXEC_BK_AND_RBK_HANDLER_LIB_PATH="${DIFBK_BK_LIB_DIR_PATH}/exec_bk_and_rbk_handler_lib"

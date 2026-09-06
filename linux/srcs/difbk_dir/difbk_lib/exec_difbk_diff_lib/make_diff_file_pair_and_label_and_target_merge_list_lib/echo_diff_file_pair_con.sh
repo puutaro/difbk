@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 
 echo_diff_file_pair_con_lib_path="${MAKE_DIFF_FILE_PAIR_AND_LABEL_AND_TARGET_MERGE_LIST_LIB_PATH}/echo_diff_file_pair_con_lib"

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 CURRENT_DIR_PATH="$(echo $(cd $(dirname $0) && pwd))"
 key_input_os_type="${1}"
 declare -A OS_TYPE_MAPS=(	

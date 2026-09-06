@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 copy_exec(){
 	local sed_buck_up_create_dir_path=$(echo "${BACKUP_CREATE_DIR_PATH}" | sed 's/\//\\\//g')

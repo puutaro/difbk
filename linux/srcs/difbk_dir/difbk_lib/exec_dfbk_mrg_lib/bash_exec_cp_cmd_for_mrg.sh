@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 
 bash_exec_cp_cmd_for_mrg(){

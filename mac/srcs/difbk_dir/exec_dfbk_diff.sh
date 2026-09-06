@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # 0:path word 1;num 2:path 
 second_para_janre=0

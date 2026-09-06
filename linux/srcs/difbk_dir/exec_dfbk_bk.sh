@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 
 readonly DFBK_UTIL_DIR_NAME=".difbk"

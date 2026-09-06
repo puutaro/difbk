@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 
 DRY_BK_OPTION="${DRY_BK_ARGS_NAME}"

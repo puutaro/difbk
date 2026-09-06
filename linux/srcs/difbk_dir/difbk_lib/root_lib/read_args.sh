@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 READ_ARGS_LIB_PATH="${DIFBK_ROOT_LIB_PATH}/read_args_lib"
 

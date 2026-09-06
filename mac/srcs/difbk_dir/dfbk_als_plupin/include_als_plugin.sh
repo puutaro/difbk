@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 extend_disp_range=$((${disp_list_num} - 2))
 echo "## best_path_word(search_extend) %,  average file row"
 header=""

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 
 ECHO_BEFORE_AND_AFTER_DELETE_CMD_LIB_PATH="${DIFBK_COMMON_LIB_PATH}/echo_before_and_after_delete_cmd_lib"

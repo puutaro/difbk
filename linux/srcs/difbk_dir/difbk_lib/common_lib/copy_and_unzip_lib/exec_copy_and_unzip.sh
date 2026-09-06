@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 
 exec_copy_and_unzip_lib_path="${COPY_AND_UNZIP_LIB_PATH}/exec_copy_and_unzip_lib"

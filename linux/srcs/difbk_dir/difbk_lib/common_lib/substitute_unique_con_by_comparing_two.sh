@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 
 substitute_unique_con_lib_path="${DIFBK_COMMON_LIB_PATH}/substitute_unique_con_by_comparing_two_lib"
