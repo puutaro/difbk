@@ -48,9 +48,7 @@ Installation
 - Support Ubuntu20.04+
 
 ```
-git clone https://github.com/kitamura-take/difbk.git ~/.difbk
-cd ~/.difbk/install
-bash install.sh l
+curl https://raw.githubusercontent.com/puutaro/difbk/refs/heads/master/install.sh | bash
 ```
 
 
