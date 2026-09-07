@@ -6,6 +6,7 @@ if [ "$(uname -s)" = "Darwin" ];then
   export PATH="/opt/homebrew/opt/gawk/libexec/gnubin:$PATH"
   export PATH="/opt/homebrew/opt/grep/libexec/gnubin:$PATH"
   export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
+  export PATH="/opt/homebrew/opt/gzip/libexec/gnubin:$PATH"
 fi
 LANG=C
 DIFBK_SUB_CMD="${1}"
