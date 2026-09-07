@@ -43,22 +43,11 @@ Table of Contents
 Installation
 -----
 
-### For Ubuntu or Debian or Wsl
-
-- Support Ubuntu20.04+
+### For Linux, Mac
 
 ```
 curl https://raw.githubusercontent.com/puutaro/difbk/refs/heads/master/install.sh | bash
 ```
-
-
-Upgrading.
------
-
-
-### Upgrading for Ubuntu or Debian
-1. delete $HOME/.difbk directory
-2. same as installation.
 
 Usage
 -----
